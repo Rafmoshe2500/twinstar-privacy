@@ -137,14 +137,16 @@
       <span class="name">Twinstar</span>
     </header>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated · May 25, 2026</div>
+    <div class="updated">Last updated · June 8, 2026</div>
 
     <p>
-      Twinstar is a mobile game published by Twinstar Games. The game is
-      designed to be playable fully offline and stores no personal data on
-      our own servers. This page describes the limited categories of data
-      processed by third-party services we integrate with, what they are
-      used for, and how to opt out.
+      Twinstar is a mobile game published by Twinstar Games. The core game is
+      designed to be playable fully offline, and we operate no game servers
+      that store your personal data. Optional features — online 1&nbsp;v&nbsp;1
+      multiplayer and cloud&nbsp;save — rely on Google and a network-relay
+      provider, and are described below. This page covers the limited
+      categories of data processed by the third-party services we integrate
+      with, what they are used for, and how to opt out.
     </p>
 
     <h2>Data we collect</h2>
@@ -174,14 +176,44 @@ optional, and the game is fully playable without it.
         Play Console. We use this data exclusively to improve game
         stability. It cannot be used to identify you.
       </li>
+      <li>
+        <strong>Online multiplayer (IP address &amp; connection data)</strong>
+        — if you choose to play an online 1&nbsp;v&nbsp;1 match, your device
+        establishes a direct peer-to-peer connection with your opponent's
+        device using WebRTC. To set up that connection, your public
+        <strong>IP address</strong> and network "candidate" information are
+        exchanged with the other player and processed by connection-helper
+        servers (Google STUN and a TURN relay provider, ExpressTURN). When a
+        direct connection is not possible, gameplay traffic is relayed through
+        the TURN provider. We use Google Firebase only to coordinate the
+        initial handshake (an anonymous, temporary session identifier and the
+        connection details), which is deleted once the match connects. No
+        score, purchase, or account data is involved in multiplayer, and no
+        gameplay data is stored on our servers. This feature is used only when
+        you start an online match.
+      </li>
+      <li>
+        <strong>Cloud save (game progress)</strong> — if you are signed in to
+        Google Play Games, your in-game progress (best scores, unlocked and
+        owned skins, star balance, and settings) is saved to Google Play Games
+        "Saved Games" (Snapshots), tied to your Google account, so it survives
+        reinstalls and syncs across your devices. This data is stored by Google,
+        not by us. Cloud save is disabled if you do not sign in to Google Play
+        Games; in that case progress is kept only on your device.
+      </li>
     </ul>
 
     <h2>Data we do not collect</h2>
     <p>
       We do not collect names, email addresses, phone numbers, precise
-      location, photos, contacts, microphone or camera input, or any other
-      personally identifiable information. The game does not require an
-      account and is fully functional offline (advertisements aside).
+      (GPS) location, photos, contacts, microphone or camera input, or any
+      similar personally identifiable information. We do not receive your
+      Google account email or password. The only network identifier involved
+      is your IP address, and only during an online multiplayer match as
+      described above — it is used solely to establish the connection and is
+      not stored by us. The game does not require an account and the
+      single-player experience is fully functional offline (advertisements
+      aside).
     </p>
 
     <h2>Third-party services</h2>
@@ -203,8 +235,21 @@ optional, and the game is fully playable without it.
         <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.
       </li>
       <li>
-        <strong>Google Play Games Services</strong> — optional sign-in and global leaderboards. Governed by the
-<a href="https://policies.google.com/privacy">Google Privacy Policy</a>.
+        <strong>Google Play Games Services</strong> — optional sign-in,
+        global leaderboards, and cloud save (Saved Games / Snapshots).
+        Governed by the
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.
+      </li>
+      <li>
+        <strong>Google Firebase</strong> &mdash; used only to coordinate the
+        connection handshake for online multiplayer (temporary anonymous
+        session and connection details, deleted on connect). See
+        <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's privacy and security information</a>.
+      </li>
+      <li>
+        <strong>ExpressTURN (network relay)</strong> &mdash; a STUN/TURN
+        provider that helps establish, and where necessary relays, the
+        peer-to-peer connection between players during an online match.
       </li>
     </ul>
 
@@ -222,9 +267,14 @@ optional, and the game is fully playable without it.
     <p>
       Because we do not store user data on our own servers, there is
       nothing for us to retain or delete on your behalf. To remove all
-      game data from your device, uninstall the application. To reset the
+      game data from your device, uninstall the application. Cloud-saved
+      progress and leaderboard data are held by Google Play Games and can be
+      deleted from your
+      <a href="https://play.google.com/games" target="_blank" rel="noopener">Google Play Games settings</a>
+      (delete game data). The multiplayer connection handshake is deleted
+      automatically once a match connects and is not retained. To reset the
       Advertising ID, use your device settings as described above. For
-      data held by Google (AdMob, Play Services), please refer to
+      data held by Google (AdMob, Play Services, Firebase), please refer to
       <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google's data &amp; privacy controls</a>.
     </p>
 
