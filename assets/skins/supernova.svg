@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -108 216 216" width="216" height="216">
+  <circle r="100.8" fill="#9fd8ff" opacity="0.12" />
+  <circle r="61.2" fill="#ffd6a8" opacity="0.2" />
+  <circle r="55.8" fill="none" stroke="#ffae5e" stroke-width="4.32" opacity="0.5" />
+  <line x1="18" y1="0" x2="70.2" y2="0" stroke="#fff0c2" stroke-width="5.76" stroke-linecap="round" opacity="0.92" />
+  <line x1="15.588" y1="9" x2="35.853" y2="20.7" stroke="#9fd8ff" stroke-width="3.24" stroke-linecap="round" opacity="0.7" />
+  <line x1="9" y1="15.588" x2="35.1" y2="60.795" stroke="#fff0c2" stroke-width="5.76" stroke-linecap="round" opacity="0.92" />
+  <line x1="0" y1="18" x2="0" y2="41.4" stroke="#9fd8ff" stroke-width="3.24" stroke-linecap="round" opacity="0.7" />
+  <line x1="-9" y1="15.588" x2="-35.1" y2="60.795" stroke="#fff0c2" stroke-width="5.76" stroke-linecap="round" opacity="0.92" />
+  <line x1="-15.588" y1="9" x2="-35.853" y2="20.7" stroke="#9fd8ff" stroke-width="3.24" stroke-linecap="round" opacity="0.7" />
+  <line x1="-18" y1="0" x2="-70.2" y2="0" stroke="#fff0c2" stroke-width="5.76" stroke-linecap="round" opacity="0.92" />
+  <line x1="-15.588" y1="-9" x2="-35.853" y2="-20.7" stroke="#9fd8ff" stroke-width="3.24" stroke-linecap="round" opacity="0.7" />
+  <line x1="-9" y1="-15.588" x2="-35.1" y2="-60.795" stroke="#fff0c2" stroke-width="5.76" stroke-linecap="round" opacity="0.92" />
+  <line x1="0" y1="-18" x2="0" y2="-41.4" stroke="#9fd8ff" stroke-width="3.24" stroke-linecap="round" opacity="0.7" />
+  <line x1="9" y1="-15.588" x2="35.1" y2="-60.795" stroke="#fff0c2" stroke-width="5.76" stroke-linecap="round" opacity="0.92" />
+  <line x1="15.588" y1="-9" x2="35.853" y2="-20.7" stroke="#9fd8ff" stroke-width="3.24" stroke-linecap="round" opacity="0.7" />
+  <circle r="28.08" fill="#cfeaff" opacity="0.6" />
+  <circle r="20.88" fill="#ffffff" />
+  <circle cx="-4.32" cy="-4.32" r="5.04" fill="#ffffff" />
+</svg>

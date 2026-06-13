@@ -1,28 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=./privacy.html">
-  <link rel="canonical" href="./privacy.html">
-  <title>Twinstar — Privacy Policy</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 32px;
-      background: #0a1024;
-      color: #e6edf7;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      text-align: center;
-    }
-    a {
-      color: #7af2ff;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(122, 242, 255, 0.4);
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Twinstar: Mirror Comet — One Input · Two Paths</title>
+<meta name="description" content="Twinstar: Mirror Comet is a one-thumb arcade game of mirrored comets, asymmetric gates and ten shifting palettes. Hold to steer, release to drift. Solo, local 2-player, or online 1v1." />
+<meta name="theme-color" content="#0a1024" />
+<link rel="icon" type="image/png" href="assets/icon-512.png" />
+<link rel="apple-touch-icon" href="assets/icon-512.png" />
+
+<!-- Open Graph / social. Replace USERNAME with your GitHub username for share previews. -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Twinstar: Mirror Comet — One Input · Two Paths" />
+<meta property="og:description" content="A one-thumb arcade game of mirrored comets. Hold to steer, release to drift." />
+<meta property="og:image" content="https://USERNAME.github.io/assets/feature.png" />
+<meta property="og:url" content="https://USERNAME.github.io/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --bg:#0a1024; --bg-edge:#05060d; --bg-glow:#0d1730;
+    --ink:#e6edf7; --ink-dim:rgba(230,237,247,.58); --ink-faint:rgba(230,237,247,.32);
+    --cyan:#7af2ff; --cyan-core:#cffaff; --cyan-glow:#38c8e6;
+    --amber:#ffd884; --violet:#c9a6ff; --rose:#ff9eb5;
+    --line:rgba(122,242,255,.16); --card:rgba(255,255,255,.035); --card-line:rgba(255,255,255,.08);
+    --display:'Space Grotesk',system-ui,sans-serif;
+    --body:'Manrope',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body); color:var(--ink); background:var(--bg);
+    line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    background:
+      radial-gradient(1200px 700px at 50% -10%, var(--bg-glow), transparent 60%),
+      radial-gradient(900px 600px at 85% 20%, rgba(122,242,255,.05), transparent 55%),
+      radial-gradient(700px 700px at 10% 80%, rgba(201,166,255,.05), transparent 60%),
+      linear-gradient(180deg,var(--bg),var(--bg-edge));
+    background-attachment:fixed;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{position:relative}
+
+  /* ---------- starfield ---------- */
+  .stars,.stars2,.stars3{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .stars{background-repeat:repeat;animation:twinkle 6s ease-in-out infinite alternate}
+  .stars2{animation:twinkle 9s ease-in-out infinite alternate-reverse;opacity:.7}
+  .stars3{animation:twinkle 13s ease-in-out infinite alternate;opacity:.5}
+  @keyframes twinkle{from{opacity:.35}to{opacity:.9}}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:linear-gradient(180deg,rgba(10,16,36,.82),rgba(10,16,36,.45));
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;letter-spacing:.14em;font-size:15px}
+  .brand img{width:30px;height:30px;border-radius:8px;box-shadow:0 0 18px rgba(122,242,255,.45)}
+  .brand b{color:var(--cyan-core);text-shadow:0 0 14px rgba(122,242,255,.6)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);transition:color .2s}
+  .nav-links a:hover{color:var(--cyan)}
+  .nav-links .cta{color:var(--bg-edge)}
+  @media(max-width:720px){.nav-links a:not(.cta){display:none}}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:500;
+    letter-spacing:.06em;font-size:15px;padding:13px 22px;border-radius:999px;cursor:pointer;
+    border:1px solid transparent;transition:transform .18s ease,box-shadow .25s ease,background .2s;
+  }
+  .btn-primary{
+    background:linear-gradient(180deg,var(--cyan-core),var(--cyan));color:#062028;
+    box-shadow:0 0 0 1px rgba(122,242,255,.5),0 10px 34px rgba(56,200,230,.4);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(122,242,255,.8),0 16px 44px rgba(56,200,230,.55)}
+  .btn-ghost{background:rgba(255,255,255,.04);border-color:var(--card-line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+  .btn svg{width:18px;height:18px;flex:none}
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 40px;z-index:1}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:8px;text-align:center}}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.42em;color:var(--cyan);text-transform:uppercase;margin-bottom:18px}
+  .wordmark{
+    font-family:var(--display);font-weight:700;font-size:clamp(52px,11vw,108px);line-height:.92;
+    letter-spacing:.02em;color:var(--cyan-core);
+    text-shadow:0 0 18px rgba(122,242,255,.55),0 0 54px rgba(56,200,230,.4);
+  }
+  .subname{font-family:var(--display);font-weight:500;font-size:clamp(20px,4.6vw,34px);letter-spacing:.16em;color:var(--cyan);text-transform:uppercase;margin-top:8px;text-shadow:0 0 22px rgba(122,242,255,.42)}
+  .tagline{font-family:var(--mono);font-size:clamp(13px,2.4vw,17px);letter-spacing:.34em;color:var(--ink-dim);margin:14px 0 22px;text-transform:uppercase}
+  .lead{font-size:clamp(16px,2.2vw,19px);color:var(--ink-dim);max-width:46ch;margin-bottom:30px}
+  @media(max-width:880px){.lead{margin-inline:auto}}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  @media(max-width:880px){.hero-cta{justify-content:center}}
+  .hero-stats{display:flex;gap:30px;margin-top:34px}
+  @media(max-width:880px){.hero-stats{justify-content:center}}
+  .hero-stats div{font-family:var(--display)}
+  .hero-stats b{display:block;font-size:26px;color:var(--cyan-core)}
+  .hero-stats span{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-faint);text-transform:uppercase}
+
+  .hero-art{position:relative;display:flex;justify-content:center}
+  .hero-art svg{width:min(440px,90%);height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
+
+  /* ---------- palette strip ---------- */
+  .palette{margin:36px 0 8px}
+  .palette-bar{display:flex;height:14px;border-radius:999px;overflow:hidden;box-shadow:0 0 0 1px var(--card-line),0 14px 40px rgba(0,0,0,.4)}
+  .palette-bar i{flex:1;transition:flex .3s}
+  .palette-bar:hover i{flex:.7}.palette-bar i:hover{flex:2.6}
+  .palette-cap{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-faint);margin-top:12px;text-transform:uppercase}
+
+  /* ---------- generic section ---------- */
+  .sec{padding:72px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 48px}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.36em;color:var(--cyan);text-transform:uppercase}
+  .sec-head h2{font-family:var(--display);font-weight:500;font-size:clamp(28px,5vw,42px);margin:14px 0 12px;letter-spacing:-.01em}
+  .sec-head p{color:var(--ink-dim);font-size:17px}
+
+  .grid{display:grid;gap:20px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g5{grid-template-columns:repeat(5,1fr)}
+  @media(max-width:880px){.g3{grid-template-columns:1fr}.g5{grid-template-columns:repeat(2,1fr)}}
+
+  .card{
+    background:var(--card);border:1px solid var(--card-line);border-radius:18px;padding:26px;
+    transition:transform .25s ease,border-color .25s ease,background .25s ease;position:relative;overflow:hidden;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--line);background:rgba(122,242,255,.045)}
+  .card .num{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--cyan);opacity:.8}
+  .card h3{font-family:var(--display);font-weight:500;font-size:21px;margin:14px 0 8px}
+  .card p{color:var(--ink-dim);font-size:15px}
+  .card .ico{width:46px;height:46px;display:grid;place-items:center;border-radius:12px;background:rgba(122,242,255,.1);border:1px solid var(--line);margin-bottom:8px}
+  .card .ico svg{width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:1.6}
+  .card .tag{position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--bg-edge);background:var(--cyan);padding:3px 9px;border-radius:999px}
+
+  /* ---------- planets ---------- */
+  .planets{display:flex;gap:18px;overflow-x:auto;padding:8px 4px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .planets::-webkit-scrollbar{height:6px}.planets::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px}
+  .planet{flex:none;width:128px;text-align:center;scroll-snap-align:start}
+  .orb{width:96px;height:96px;border-radius:50%;margin:0 auto 12px;position:relative;box-shadow:inset -14px -14px 30px rgba(0,0,0,.55),0 0 26px rgba(122,242,255,.12)}
+  .orb.ring::after{content:"";position:absolute;inset:50% -26% auto -26%;height:18px;transform:translateY(-50%) rotate(-16deg);border-radius:50%;border:6px solid rgba(255,216,132,.5);border-bottom-color:transparent;border-top-color:rgba(255,216,132,.85)}
+  .planet b{display:block;font-family:var(--display);font-size:14px;letter-spacing:.08em}
+  .planet span{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.1em}
+
+  /* ---------- skins grid ---------- */
+  .skins-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  @media(max-width:880px){.skins-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:520px){.skins-grid{grid-template-columns:repeat(2,1fr)}}
+  .skin{
+    background:radial-gradient(120px 120px at 50% 35%,rgba(122,242,255,.08),transparent 70%),var(--card);
+    border:1px solid var(--card-line);border-radius:16px;padding:18px 12px 14px;text-align:center;
+    transition:transform .25s,border-color .25s;
+  }
+  .skin:hover{transform:translateY(-4px) scale(1.02);border-color:var(--line)}
+  .skin img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}
+  .skin b{display:block;font-family:var(--display);font-size:14px;margin-top:10px}
+  .skin .price{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.06em;margin-top:2px}
+  .skin .price::before{content:"★ "}
+
+  /* ---------- gallery ---------- */
+  .gallery{display:flex;gap:26px;justify-content:center;flex-wrap:wrap}
+  .phone{
+    width:230px;border-radius:30px;padding:10px;background:linear-gradient(160deg,#1a2240,#0a0f1f);
+    border:1px solid var(--card-line);box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.04);
+    transition:transform .3s ease;
+  }
+  .phone:hover{transform:translateY(-8px) rotate(-1deg)}
+  .phone:nth-child(2){transform:translateY(-22px)}
+  .phone:nth-child(2):hover{transform:translateY(-30px)}
+  .phone img{width:100%;border-radius:22px;display:block}
+  .phone .cap{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-faint);padding:12px 0 4px;text-transform:uppercase}
+
+  /* ---------- features ribbon ---------- */
+  .features{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .feat{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--ink-dim);
+    background:var(--card);border:1px solid var(--card-line);border-radius:999px;padding:10px 18px}
+  .feat svg{width:16px;height:16px;stroke:var(--cyan);fill:none;stroke-width:1.8}
+
+  /* ---------- final cta ---------- */
+  .finale{text-align:center;padding:90px 0}
+  .finale .glow{
+    background:radial-gradient(600px 300px at 50% 0,rgba(122,242,255,.12),transparent 70%);
+    border:1px solid var(--line);border-radius:28px;padding:60px 28px;
+  }
+  .finale img{width:84px;height:84px;border-radius:20px;box-shadow:0 0 40px rgba(122,242,255,.5);margin-bottom:22px}
+  .finale h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,6vw,48px);letter-spacing:-.01em}
+  .finale p{color:var(--ink-dim);max-width:42ch;margin:14px auto 30px;font-size:17px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0;margin-top:20px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot .brand{font-size:14px}
+  .foot-links{display:flex;gap:24px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .foot-links a:hover{color:var(--cyan)}
+  .copy{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.1em;width:100%;text-align:center;margin-top:18px}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}*{animation:none!important}}
+</style>
 </head>
 <body>
-  <p>Redirecting to <a href="./privacy.html">the Twinstar Privacy Policy</a>&hellip;</p>
+<div class="stars" id="s1"></div>
+<div class="stars2" id="s2"></div>
+<div class="stars3" id="s3"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><img src="assets/icon-512.png" alt="Twinstar: Mirror Comet icon" /> TWIN<b>STAR</b></a>
+    <nav class="nav-links">
+      <a href="#play">How to play</a>
+      <a href="#modes">Modes</a>
+      <a href="#skins">Skins</a>
+      <a href="#get" class="btn btn-primary cta">Get the game</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">A one-thumb arcade game</div>
+        <h1 class="wordmark">TWIN<br>STAR</h1>
+        <div class="subname">Mirror Comet</div>
+        <div class="tagline">One input · Two paths</div>
+        <p class="lead">A one-thumb arcade game of mirrored comets, asymmetric gates and ten ever-shifting palettes. Hold to steer toward the axis, release to drift away — and thread <em>both</em> comets through every gap.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#get">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 2.5v19a1 1 0 0 0 1.5.87l16-9.5a1 1 0 0 0 0-1.74l-16-9.5A1 1 0 0 0 3 2.5z"/></svg>
+            Get it on Google Play
+          </a>
+          <a class="btn btn-ghost" href="#play">See how it plays</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>5</b><span>Game modes</span></div>
+          <div><b>30</b><span>Unlockable skins</span></div>
+          <div><b>10</b><span>Color palettes</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <!-- twin-comet mechanic illustration -->
+        <svg viewBox="0 0 440 460" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="planet" cx="42%" cy="38%" r="70%">
+              <stop offset="0%" stop-color="#5b6a86"/>
+              <stop offset="55%" stop-color="#2b3550"/><stop offset="100%" stop-color="#0d1428"/>
+            </radialGradient>
+            <radialGradient id="chead" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffffff"/><stop offset="35%" stop-color="#cffaff"/>
+              <stop offset="100%" stop-color="#38c8e6"/>
+            </radialGradient>
+            <linearGradient id="trail" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#7af2ff" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#7af2ff" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+          </defs>
+
+          <!-- planet -->
+          <circle cx="220" cy="230" r="150" fill="url(#planet)" opacity=".9"/>
+          <circle cx="170" cy="180" r="20" fill="#0d1428" opacity=".4"/>
+          <circle cx="265" cy="270" r="30" fill="#0d1428" opacity=".35"/>
+          <circle cx="220" cy="230" r="150" fill="none" stroke="#7af2ff" stroke-opacity=".18"/>
+
+          <!-- gates sliding left -->
+          <g fill="#12243a" stroke="#3a7088" stroke-width="1.5">
+            <g>
+              <rect x="360" y="60" width="16" height="120" rx="6"/>
+              <rect x="360" y="300" width="16" height="120" rx="6"/>
+              <animateTransform attributeName="transform" type="translate" from="0 0" to="-360 0" dur="5s" repeatCount="indefinite"/>
+            </g>
+            <g>
+              <rect x="520" y="40" width="16" height="150" rx="6"/>
+              <rect x="520" y="320" width="16" height="110" rx="6"/>
+              <animateTransform attributeName="transform" type="translate" from="0 0" to="-360 0" dur="5s" begin="-2.5s" repeatCount="indefinite"/>
+            </g>
+          </g>
+
+          <!-- axis -->
+          <line x1="0" y1="230" x2="440" y2="230" stroke="#7af2ff" stroke-opacity=".55" stroke-width="2"/>
+          <line x1="0" y1="230" x2="440" y2="230" stroke="#7af2ff" stroke-opacity=".25" stroke-width="8" filter="url(#soft)"/>
+
+          <!-- top comet (bobs toward axis) -->
+          <g>
+            <path d="M40 120 Q120 130 150 150" stroke="url(#trail)" stroke-width="6" fill="none" stroke-linecap="round" opacity=".8"/>
+            <circle cx="150" cy="150" r="13" fill="url(#chead)"/>
+            <circle cx="150" cy="150" r="22" fill="#7af2ff" opacity=".18" filter="url(#soft)"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 60; 0 0" dur="3.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
+          </g>
+          <!-- bottom comet (mirror) -->
+          <g>
+            <path d="M40 340 Q120 330 150 310" stroke="url(#trail)" stroke-width="6" fill="none" stroke-linecap="round" opacity=".8"/>
+            <circle cx="150" cy="310" r="13" fill="url(#chead)"/>
+            <circle cx="150" cy="310" r="22" fill="#7af2ff" opacity=".18" filter="url(#soft)"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 -60; 0 0" dur="3.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- palette strip -->
+    <div class="palette reveal">
+      <div class="palette-bar" id="paletteBar"></div>
+      <div class="palette-cap"><span>Aurora</span><span>Every 20 gates · the sky shifts</span><span>Indigo</span></div>
+    </div>
+  </section>
+
+  <!-- HOW TO PLAY -->
+  <section class="sec wrap" id="play">
+    <div class="sec-head reveal">
+      <div class="kicker">The whole game in one thumb</div>
+      <h2>Hold. Release. Survive.</h2>
+      <p>No buttons, no menus to fight. Just one touch that bends two comets at once.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal"><div class="num">01</div><h3>Hold to steer</h3><p>Press anywhere to pull the comets toward the center axis. Let go and they drift back outward. That single input is your only control.</p></div>
+      <div class="card reveal"><div class="num">02</div><h3>Mirror &amp; thread</h3><p>The two comets mirror each other across the axis. Asymmetric gates slide in from the right — guide <em>both</em> comets safely through every gap.</p></div>
+      <div class="card reveal"><div class="num">03</div><h3>Shifting skies</h3><p>Score a point for every gate you pass. Every 20 gates the entire color palette transforms, cycling through ten moods from Aurora to Indigo.</p></div>
+    </div>
+  </section>
+
+  <!-- MODES -->
+  <section class="sec wrap" id="modes">
+    <div class="sec-head reveal">
+      <div class="kicker">Five ways to fly</div>
+      <h2>A mode for every mood</h2>
+      <p>From a gentle warm-up to a worldwide 1-on-1 over the network.</p>
+    </div>
+    <div class="grid g5">
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div><h3>Hard</h3><p>The original. Two mirrored comets, falling together. Thread both or it's over.</p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg></div><h3>Easy</h3><p>Single screen, single comet, wide full-height gates. The gentle path in.</p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/></svg></div><h3>2 Players · Local</h3><p>Split the screen, two thumbs, one device. First to crash loses.</p></div>
+      <div class="card reveal"><div class="tag">P2P</div><div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div><h3>Online 1v1</h3><p>Peer-to-peer over WebRTC. Share a room code and race a friend anywhere.</p></div>
+      <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Quick Match</h3><p>Instant bot opponents across eight skill tiers. No waiting, ever.</p></div>
+    </div>
+  </section>
+
+  <!-- SKINS -->
+  <section class="sec wrap" id="skins">
+    <div class="sec-head reveal">
+      <div class="kicker">Collect · Customize</div>
+      <h2>Earn stars. Dress your comet.</h2>
+      <p>A star for every gate you pass — one shared wallet across all modes. Unlock ten planets by score, and buy twenty hand-drawn character skins in the Shop, each with its own procedural animation.</p>
+    </div>
+
+    <div class="planets reveal" id="planets"></div>
+
+    <div class="skins-grid reveal" id="skinsGrid"></div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Screens</div>
+      <h2>Built to glow in the dark</h2>
+    </div>
+    <div class="gallery reveal">
+      <div class="phone"><img src="assets/shot-title.png" alt="Twinstar title screen" loading="lazy"/><div class="cap">Title</div></div>
+      <div class="phone"><img src="assets/shot-play.png" alt="Twinstar gameplay" loading="lazy"/><div class="cap">Aurora · in play</div></div>
+      <div class="phone"><img src="assets/shot-skins.png" alt="Twinstar skins screen" loading="lazy"/><div class="cap">Planet skins</div></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="sec wrap">
+    <div class="features reveal">
+      <span class="feat"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg> Google Play Games leaderboards</span>
+      <span class="feat"><svg viewBox="0 0 24 24"><path d="M4 14a4 4 0 0 1 1-7.9A5 5 0 0 1 19 8a3.5 3.5 0 0 1-.5 7z"/></svg> Cross-device cloud save</span>
+      <span class="feat"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg> Daily star reward</span>
+      <span class="feat"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg> One-thumb controls</span>
+      <span class="feat"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg> Free to play</span>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="finale wrap" id="get">
+    <div class="glow reveal">
+      <img src="assets/icon-512.png" alt="Twinstar: Mirror Comet"/>
+      <h2>Ready to thread the needle?</h2>
+      <p>Twinstar: Mirror Comet is free on Android. One input, two paths, infinite sky.</p>
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.twinstar.app">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 2.5v19a1 1 0 0 0 1.5.87l16-9.5a1 1 0 0 0 0-1.74l-16-9.5A1 1 0 0 0 3 2.5z"/></svg>
+        Get it on Google Play
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="#top"><img src="assets/icon-512.png" alt="" style="width:24px;height:24px;border-radius:6px"/> TWIN<b style="color:var(--cyan-core)">STAR</b></a>
+      <nav class="foot-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="mailto:twinstarmirrorcommets@gmail.com">Contact</a>
+        <a href="https://play.google.com/store/apps/details?id=com.twinstar.app">Google Play</a>
+      </nav>
+    </div>
+    <div class="copy">© <span id="yr"></span> Twinstar · com.twinstar.app — Made for one thumb and a dark room.</div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ---- starfield (3 parallax layers) ----
+  function field(el, n, max){
+    const w = window.innerWidth, h = window.innerHeight;
+    let shadow = [];
+    for(let i=0;i<n;i++){
+      const x = Math.floor(Math.random()*w), y = Math.floor(Math.random()*(h*1.4));
+      shadow.push(`${x}px ${y}px rgba(230,237,247,${(Math.random()*0.7+0.3).toFixed(2)})`);
+    }
+    el.style.cssText += `position:fixed;width:${max}px;height:${max}px;border-radius:50%;background:#e6edf7;box-shadow:${shadow.join(',')}`;
+  }
+  field(document.getElementById('s1'), 70, 1.6);
+  field(document.getElementById('s2'), 45, 2.2);
+  field(document.getElementById('s3'), 25, 3);
+
+  // ---- palette strip ----
+  const PAL = [
+    ['AURORA','#7af2ff'],['SEAFOAM','#86f0d4'],['EMERALD','#84f0a8'],['CITRINE','#dcf07a'],
+    ['AMBER','#ffd884'],['CORAL','#ffaa84'],['ROSE','#ff9eb5'],['MAGENTA','#ff84d8'],
+    ['LILAC','#c9a6ff'],['INDIGO','#8ea0ff']
+  ];
+  document.getElementById('paletteBar').innerHTML =
+    PAL.map(p=>`<i style="background:${p[1]}" title="${p[0]}"></i>`).join('');
+
+  // ---- planets ----
+  const PLANETS = [
+    ['MOON','#aeb6c4 30%,#5a6376',0],['MERCURY','#caa67e 30%,#6e4f33',20],
+    ['MARS','#e2734a 30%,#7a2f1c',40],['VENUS','#f0d59a 30%,#8a6d3a',60],
+    ['EARTH','#6fb6e8 25%,#1f5a3a',80],['NEPTUNE','#5b8cff 30%,#1f2f7a',100],
+    ['URANUS','#9fe6e0 30%,#2f7a76',120],['SATURN','#e8c98a 30%,#8a6a35',140],
+    ['JUPITER','#e0a878 25%,#7a4a2a',160],['SUN','#fff1a8 20%,#f0a830 70%,#c44a10',180]
+  ];
+  document.getElementById('planets').innerHTML = PLANETS.map(p=>`
+    <div class="planet">
+      <div class="orb${p[0]==='SATURN'?' ring':''}" style="background:radial-gradient(circle at 38% 32%,${p[1]})"></div>
+      <b>${p[0]}</b><span>Score ${p[2]}</span>
+    </div>`).join('');
+
+  // ---- character skins ----
+  const SKINS = [
+    ['starlet','Starlet',100],['meteor','Meteor',100],['cryoid','Cryoid',100],
+    ['alien','Visitor',200],['octopod','Octopod',200],['blob','Blob',200],
+    ['crystal','Prism',500],['bolt','Bolt',500],['satellite','Comsat',1500],
+    ['ufo','Saucer',2500],['rocket','Rocket',2500],['warhead','Warhead',2500],
+    ['torpedo','Torpedo',2500],['shuttle','Orbiter',2500],['cruiser','Cruiser',2500],
+    ['supernova','Supernova',3000],['pulsar','Pulsar',3000],['fighter','Interceptor',5000],
+    ['phoenix','Phoenix',7500],['eye','Nebula Eye',10000]
+  ];
+  document.getElementById('skinsGrid').innerHTML = SKINS.map(s=>`
+    <div class="skin">
+      <img src="assets/skins/${s[0]}.svg" alt="${s[1]} skin" loading="lazy"/>
+      <b>${s[1]}</b><div class="price">${s[2].toLocaleString()}</div>
+    </div>`).join('');
+
+  // ---- scroll reveal ----
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>

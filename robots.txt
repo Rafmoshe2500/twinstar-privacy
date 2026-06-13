@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# AdMob / IAB app-ads.txt crawler must be able to reach the file at the root.
+# https://USERNAME.github.io/app-ads.txt

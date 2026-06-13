@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -108 216 216" width="216" height="216">
+  <circle r="86.4" fill="#e070ff" opacity="0.18" />
+  <circle r="54" fill="#f4c2ff" opacity="0.3" />
+  <path d="M -46.8 0 Q 0 -32.4 46.8 0 Q 0 32.4 -46.8 0 Z" fill="#f8e8ff" />
+  <path d="M -46.8 0 Q 0 -32.4 46.8 0 Q 0 32.4 -46.8 0 Z" fill="none" stroke="#a020c0" stroke-width="1.8" />
+  <circle r="25.2" fill="#a020c0" />
+  <circle r="19.8" fill="#7a10a0" />
+  <circle r="14.4" fill="#3a0050" />
+  <circle r="9" fill="#080010" />
+  <circle r="5.76" fill="#e070ff" opacity="0.7" />
+  <circle cx="-6.48" cy="-7.2" r="4.32" fill="#ffffff" />
+  <circle cx="6.48" cy="5.4" r="2.16" fill="#ffffff" opacity="0.6" />
+  <circle cx="21.637" cy="11.901" r="2.16" fill="#ffffff" opacity="0.85" />
+  <circle cx="-21.637" cy="11.901" r="2.16" fill="#ffffff" opacity="0.85" />
+  <circle cx="-21.637" cy="-11.901" r="2.16" fill="#ffffff" opacity="0.85" />
+  <circle cx="21.637" cy="-11.901" r="2.16" fill="#ffffff" opacity="0.85" />
+</svg>

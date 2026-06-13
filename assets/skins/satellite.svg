@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -108 216 216" width="216" height="216">
+  <circle r="86.4" fill="#7aa8ff" opacity="0.13" />
+  <rect x="-55.8" y="-15.12" width="34.2" height="30.24" fill="#1d3b6b" stroke="#4a6aa0" stroke-width="2.16" />
+  <line x1="-38.7" y1="-15.12" x2="-38.7" y2="15.12" stroke="#4a6aa0" stroke-width="1.8" />
+  <line x1="-55.8" y1="0" x2="-21.6" y2="0" stroke="#4a6aa0" stroke-width="1.8" />
+  <rect x="21.6" y="-15.12" width="34.2" height="30.24" fill="#1d3b6b" stroke="#4a6aa0" stroke-width="2.16" />
+  <line x1="38.7" y1="-15.12" x2="38.7" y2="15.12" stroke="#4a6aa0" stroke-width="1.8" />
+  <line x1="21.6" y1="0" x2="55.8" y2="0" stroke="#4a6aa0" stroke-width="1.8" />
+  <rect x="-18" y="-16.2" width="36" height="32.4" rx="2.88" fill="#e8d678" stroke="#8a6e2e" stroke-width="1.8" />
+  <rect x="-15.12" y="-11.52" width="30.24" height="7.2" fill="#3a5a8a" />
+  <line x1="-15.12" y1="-7.92" x2="15.12" y2="-7.92" stroke="#bcd6ff" stroke-width="1.44" opacity="0.6" />
+  <line x1="0" y1="-16.2" x2="0" y2="-25.2" stroke="#9aa8b6" stroke-width="2.88" />
+  <ellipse cx="0" cy="-28.08" rx="11.52" ry="4.32" fill="#d6dde8" />
+  <ellipse cx="0" cy="-28.08" rx="11.52" ry="4.32" fill="none" stroke="#5a6470" stroke-width="1.44" />
+  <circle cx="0" cy="-28.08" r="1.44" fill="#5a6470" />
+  <circle cx="11.52" cy="10.8" r="2.88" fill="#ff5a4a" />
+</svg>
