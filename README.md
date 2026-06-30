@@ -1,62 +1,66 @@
-# Twinstar — landing site + app-ads.txt
+# Twinstar: Mirror Comets — landing page + privacy + app-ads.txt
 
-A static landing page for the **Twinstar** Android game, hosted free on **GitHub Pages**.
-Its main job (besides looking good) is to host **`app-ads.txt`** at the domain root so **Google AdMob** can verify your app.
+Static site for **Twinstar: Mirror Comets** (Android, `com.twinstar.app`), hosted free on **GitHub Pages**.
+It serves three things: the landing page (`index.html`), the privacy policy (`privacy.html`, required by
+Google Play + AdMob), and the AdMob verification file (`app-ads.txt`).
+
+Repo: https://github.com/Rafmoshe2500/twinstar-privacy
 
 ```
 .
-├── index.html        # the landing page (self-contained: inline CSS + JS)
-├── privacy.html      # privacy policy (required by AdMob + Google Play)
-├── app-ads.txt       # ★ AdMob verification file — MUST stay at the repo root
+├── index.html      # landing page (self-contained: inline CSS + JS)
+├── privacy.html    # privacy policy (linked from the site + used as the Play/AdMob privacy URL)
+├── privacy.md      # markdown mirror of the privacy policy
+├── app-ads.txt     # AdMob verification line
 ├── robots.txt
-├── .nojekyll         # serve files as-is (no Jekyll processing)
-└── assets/           # icon, feature graphic, screenshots, 20 skin SVGs
+├── .nojekyll       # serve files as-is
+└── assets/         # icon, feature graphic, screenshots, 20 skin SVGs
 ```
 
-## ⚠️ Why this MUST be a "user site" repo (`<username>.github.io`)
+## ⚠️ Important: app-ads.txt must sit at the DOMAIN ROOT
 
-`app-ads.txt` only works when it sits at the **root of the domain**:
-`https://<username>.github.io/app-ads.txt`
+AdMob's crawler only reads `app-ads.txt` from the **root** of the website domain, e.g.
+`https://rafmoshe2500.github.io/app-ads.txt`.
 
-GitHub Pages **project** sites live under a subpath (`/<reponame>/`), so the file would land at
-`https://<username>.github.io/<reponame>/app-ads.txt` — which AdMob's crawler will **not** find.
-Therefore the repo must be named exactly **`<username>.github.io`**.
+This repo is currently a **project site** named `twinstar-privacy`, so GitHub Pages serves it under a
+subpath: `https://rafmoshe2500.github.io/twinstar-privacy/…`. The ad file therefore lands at
+`https://rafmoshe2500.github.io/twinstar-privacy/app-ads.txt` — which AdMob will **NOT** find.
 
-## Publish (one time)
+### Fix (pick one)
 
-1. Create a new **public** repo on GitHub named exactly `YOUR-USERNAME.github.io`.
-2. Push these files to it:
-   ```bash
-   cd C:/twinstar-site
-   git init
-   git add .
-   git commit -m "Twinstar landing page + app-ads.txt"
-   git branch -M main
-   git remote add origin https://github.com/YOUR-USERNAME/YOUR-USERNAME.github.io.git
-   git push -u origin main
-   ```
-3. On GitHub: **Settings → Pages → Build and deployment → Source = "Deploy from a branch", Branch = `main` / root**. Save.
-4. Wait ~1–2 minutes, then open `https://YOUR-USERNAME.github.io` — the site should be live.
-5. Confirm the ad file is reachable (plain text, the publisher line):
-   `https://YOUR-USERNAME.github.io/app-ads.txt`
+- **A — Rename this repo to a user site (recommended).** GitHub → **Settings → Repository name** →
+  rename `twinstar-privacy` to **`Rafmoshe2500.github.io`**. Everything then serves from the root:
+  - landing page → `https://rafmoshe2500.github.io/`
+  - privacy → `https://rafmoshe2500.github.io/privacy.html`
+  - ad file → `https://rafmoshe2500.github.io/app-ads.txt` ✅
 
-## Connect it to AdMob
+  Update the local remote afterward:
+  `git remote set-url origin https://github.com/Rafmoshe2500/Rafmoshe2500.github.io.git`
+  (You can have only one `*.github.io` user-site repo.)
+- **B — Custom domain.** Point a domain you own at this Pages site (CNAME) and host `app-ads.txt` at its root.
 
-1. **Google Play Console** → your app → **Store presence → Main store listing → Website** =
-   `https://YOUR-USERNAME.github.io` → save & publish the listing.
-2. **AdMob** → **Apps → app-ads.txt** → confirm the line shown matches `app-ads.txt`
-   (it should be `google.com, pub-5427759306804971, DIRECT, f08c47fec0942fa0`).
-3. Click **Check for updates**. AdMob re-crawls on its own schedule too — verification can take
-   up to ~24h after the file and the Play listing website match.
+> The **privacy policy** works fine from the current project-site URL — only `app-ads.txt` needs the root.
 
-## Things to personalize (search & replace)
+## Deploy / update
 
-- `USERNAME` → your GitHub username (in `index.html` Open Graph tags + `robots.txt`).
-- Google Play button currently points to `https://play.google.com/store/apps/details?id=com.twinstar.app`
-  — correct once the app is published; harmless 404 until then.
-- Contact email is `rafmoshe2500@gmail.com` (in `index.html` footer + `privacy.html`).
+```bash
+cd C:/twinstar-privacy
+git add .
+git commit -m "Update site"
+git push
+```
+One-time on GitHub: **Settings → Pages → Source = Deploy from a branch → `main` / root**.
+Pages redeploys on every push.
 
-## Updating later
+## Connect to AdMob (after the root fix)
 
-Edit the files and `git push` again — GitHub Pages redeploys automatically.
-Never move or rename `app-ads.txt`; it must remain at the root.
+1. **Play Console** → app → **Store listing → Website** = your root URL (e.g. `https://rafmoshe2500.github.io`).
+2. **AdMob → Apps → app-ads.txt** → confirm the line matches:
+   `google.com, pub-5427759306804971, DIRECT, f08c47fec0942fa0`
+3. **Check for updates.** Verification can take up to ~24h after the file + Play website match.
+
+## Notes
+
+- Google Play button points to `https://play.google.com/store/apps/details?id=com.twinstar.app` (live once published).
+- Contact email: `twinstarmirrorcommets@gmail.com`.
+- Never move or rename `app-ads.txt` away from the domain root.

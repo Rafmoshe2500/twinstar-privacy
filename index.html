@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Twinstar: Mirror Comet — One Input · Two Paths</title>
-<meta name="description" content="Twinstar: Mirror Comet is a one-thumb arcade game of mirrored comets, asymmetric gates and ten shifting palettes. Hold to steer, release to drift. Solo, local 2-player, or online 1v1." />
+<title>Twinstar: Mirror Comets — One Input · Two Paths</title>
+<meta name="description" content="Twinstar: Mirror Comets is a one-thumb arcade game of mirrored comets, asymmetric gates and ten shifting palettes. Hold to steer, release to drift. Solo, local 2-player, or online 1v1." />
 <meta name="theme-color" content="#0a1024" />
 <link rel="icon" type="image/png" href="assets/icon-512.png" />
 <link rel="apple-touch-icon" href="assets/icon-512.png" />
 
-<!-- Open Graph / social. Replace USERNAME with your GitHub username for share previews. -->
+<!-- Open Graph / social -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Twinstar: Mirror Comet — One Input · Two Paths" />
+<meta property="og:title" content="Twinstar: Mirror Comets — One Input · Two Paths" />
 <meta property="og:description" content="A one-thumb arcade game of mirrored comets. Hold to steer, release to drift." />
-<meta property="og:image" content="https://USERNAME.github.io/assets/feature.png" />
-<meta property="og:url" content="https://USERNAME.github.io/" />
+<meta property="og:image" content="https://rafmoshe2500.github.io/twinstar-privacy/assets/feature.png" />
+<meta property="og:url" content="https://rafmoshe2500.github.io/twinstar-privacy/" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -111,6 +111,22 @@
   .hero-art{position:relative;display:flex;justify-content:center}
   .hero-art svg{width:min(440px,90%);height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
 
+  /* ---------- hero gameplay video (phone frame) ---------- */
+  .hero-phone{
+    position:relative;width:min(300px,82%);margin:0 auto;border-radius:38px;padding:12px;
+    background:linear-gradient(160deg,#1a2240,#0a0f1f);
+    border:1px solid var(--card-line);
+    box-shadow:0 40px 90px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.05),0 0 60px rgba(122,242,255,.18);
+  }
+  .hero-phone::before{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:46px;height:5px;border-radius:99px;background:rgba(255,255,255,.14);z-index:2}
+  .hero-phone video{width:100%;display:block;border-radius:28px;background:#05060d;aspect-ratio:191/425;object-fit:cover}
+  .hero-phone .live{position:absolute;top:22px;right:22px;z-index:2;display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--cyan-core);background:rgba(5,8,16,.6);border:1px solid var(--line);border-radius:99px;padding:4px 9px;text-transform:uppercase}
+  .hero-phone .live i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  /* ---------- star icon (matches the in-game starlet) ---------- */
+  .star-ico{width:1.05em;height:1.05em;vertical-align:-.18em;margin-right:.18em;display:inline-block;filter:drop-shadow(0 0 6px rgba(255,210,74,.5))}
+
   /* ---------- palette strip ---------- */
   .palette{margin:36px 0 8px}
   .palette-bar{display:flex;height:14px;border-radius:999px;overflow:hidden;box-shadow:0 0 0 1px var(--card-line),0 14px 40px rgba(0,0,0,.4)}
@@ -163,8 +179,35 @@
   .skin:hover{transform:translateY(-4px) scale(1.02);border-color:var(--line)}
   .skin img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}
   .skin b{display:block;font-family:var(--display);font-size:14px;margin-top:10px}
-  .skin .price{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.06em;margin-top:2px}
-  .skin .price::before{content:"★ "}
+  .skin .price{display:inline-flex;align-items:center;justify-content:center;gap:4px;font-family:var(--mono);font-size:12px;color:#ffd24a;letter-spacing:.06em;margin-top:4px}
+  .skin .price img{width:13px;height:13px;filter:drop-shadow(0 0 5px rgba(255,210,74,.5))}
+  .skin.excl{border-color:rgba(255,207,90,.45);background:radial-gradient(120px 120px at 50% 35%,rgba(255,207,90,.12),transparent 70%),var(--card)}
+  .skin .excl-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:#0a0f1f;background:linear-gradient(180deg,#ffe49a,#ffcf5a);padding:2px 8px;border-radius:99px;margin-top:4px}
+
+  /* ---------- rewards / live-ops ---------- */
+  .rewards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:880px){.rewards{grid-template-columns:1fr}}
+  .reward{
+    position:relative;background:var(--card);border:1px solid var(--card-line);border-radius:18px;padding:24px;overflow:hidden;
+    transition:transform .25s ease,border-color .25s ease,background .25s ease;
+  }
+  .reward:hover{transform:translateY(-4px);border-color:var(--line);background:rgba(255,210,74,.04)}
+  .reward .rico{width:46px;height:46px;display:grid;place-items:center;border-radius:12px;background:rgba(255,210,74,.1);border:1px solid rgba(255,207,90,.3);margin-bottom:12px}
+  .reward .rico svg{width:24px;height:24px;stroke:#ffd24a;fill:none;stroke-width:1.6}
+  .reward h3{font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:8px}
+  .reward p{color:var(--ink-dim);font-size:15px}
+  .reward .reward-amt{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:13px;color:#ffd24a;letter-spacing:.04em;margin-top:14px;padding:6px 12px;border-radius:99px;background:rgba(255,210,74,.08);border:1px solid rgba(255,207,90,.28)}
+  .reward .reward-amt img{width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,210,74,.5))}
+  .reward .tag{position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--bg-edge);background:var(--cyan);padding:3px 9px;border-radius:999px}
+
+  /* ---------- second-chance row ---------- */
+  .chances{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:30px}
+  .chance{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.03em;color:var(--ink-dim);
+    background:var(--card);border:1px solid var(--card-line);border-radius:14px;padding:12px 18px}
+  .chance b{color:var(--ink);font-weight:600}
+  .chance .ci{display:inline-flex;width:24px;height:24px}
+  .chance .ci svg{width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:1.6}
+  .chance img{width:16px;height:16px;vertical-align:-.2em}
 
   /* ---------- gallery ---------- */
   .gallery{display:flex;gap:26px;justify-content:center;flex-wrap:wrap}
@@ -216,11 +259,12 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top"><img src="assets/icon-512.png" alt="Twinstar: Mirror Comet icon" /> TWIN<b>STAR</b></a>
+    <a class="brand" href="#top"><img src="assets/icon-512.png" alt="Twinstar: Mirror Comets icon" /> TWIN<b>STAR</b></a>
     <nav class="nav-links">
       <a href="#play">How to play</a>
       <a href="#modes">Modes</a>
       <a href="#skins">Skins</a>
+      <a href="#rewards">Rewards</a>
       <a href="#get" class="btn btn-primary cta">Get the game</a>
     </nav>
   </div>
@@ -233,7 +277,7 @@
       <div>
         <div class="eyebrow">A one-thumb arcade game</div>
         <h1 class="wordmark">TWIN<br>STAR</h1>
-        <div class="subname">Mirror Comet</div>
+        <div class="subname">Mirror Comets</div>
         <div class="tagline">One input · Two paths</div>
         <p class="lead">A one-thumb arcade game of mirrored comets, asymmetric gates and ten ever-shifting palettes. Hold to steer toward the axis, release to drift away — and thread <em>both</em> comets through every gap.</p>
         <div class="hero-cta">
@@ -245,68 +289,17 @@
         </div>
         <div class="hero-stats">
           <div><b>5</b><span>Game modes</span></div>
-          <div><b>30</b><span>Unlockable skins</span></div>
+          <div><b>31</b><span>Unlockable skins</span></div>
           <div><b>10</b><span>Color palettes</span></div>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <!-- twin-comet mechanic illustration -->
-        <svg viewBox="0 0 440 460" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="planet" cx="42%" cy="38%" r="70%">
-              <stop offset="0%" stop-color="#5b6a86"/>
-              <stop offset="55%" stop-color="#2b3550"/><stop offset="100%" stop-color="#0d1428"/>
-            </radialGradient>
-            <radialGradient id="chead" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#ffffff"/><stop offset="35%" stop-color="#cffaff"/>
-              <stop offset="100%" stop-color="#38c8e6"/>
-            </radialGradient>
-            <linearGradient id="trail" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#7af2ff" stop-opacity="0"/>
-              <stop offset="100%" stop-color="#7af2ff" stop-opacity="1"/>
-            </linearGradient>
-            <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
-          </defs>
-
-          <!-- planet -->
-          <circle cx="220" cy="230" r="150" fill="url(#planet)" opacity=".9"/>
-          <circle cx="170" cy="180" r="20" fill="#0d1428" opacity=".4"/>
-          <circle cx="265" cy="270" r="30" fill="#0d1428" opacity=".35"/>
-          <circle cx="220" cy="230" r="150" fill="none" stroke="#7af2ff" stroke-opacity=".18"/>
-
-          <!-- gates sliding left -->
-          <g fill="#12243a" stroke="#3a7088" stroke-width="1.5">
-            <g>
-              <rect x="360" y="60" width="16" height="120" rx="6"/>
-              <rect x="360" y="300" width="16" height="120" rx="6"/>
-              <animateTransform attributeName="transform" type="translate" from="0 0" to="-360 0" dur="5s" repeatCount="indefinite"/>
-            </g>
-            <g>
-              <rect x="520" y="40" width="16" height="150" rx="6"/>
-              <rect x="520" y="320" width="16" height="110" rx="6"/>
-              <animateTransform attributeName="transform" type="translate" from="0 0" to="-360 0" dur="5s" begin="-2.5s" repeatCount="indefinite"/>
-            </g>
-          </g>
-
-          <!-- axis -->
-          <line x1="0" y1="230" x2="440" y2="230" stroke="#7af2ff" stroke-opacity=".55" stroke-width="2"/>
-          <line x1="0" y1="230" x2="440" y2="230" stroke="#7af2ff" stroke-opacity=".25" stroke-width="8" filter="url(#soft)"/>
-
-          <!-- top comet (bobs toward axis) -->
-          <g>
-            <path d="M40 120 Q120 130 150 150" stroke="url(#trail)" stroke-width="6" fill="none" stroke-linecap="round" opacity=".8"/>
-            <circle cx="150" cy="150" r="13" fill="url(#chead)"/>
-            <circle cx="150" cy="150" r="22" fill="#7af2ff" opacity=".18" filter="url(#soft)"/>
-            <animateTransform attributeName="transform" type="translate" values="0 0; 0 60; 0 0" dur="3.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
-          </g>
-          <!-- bottom comet (mirror) -->
-          <g>
-            <path d="M40 340 Q120 330 150 310" stroke="url(#trail)" stroke-width="6" fill="none" stroke-linecap="round" opacity=".8"/>
-            <circle cx="150" cy="310" r="13" fill="url(#chead)"/>
-            <circle cx="150" cy="310" r="22" fill="#7af2ff" opacity=".18" filter="url(#soft)"/>
-            <animateTransform attributeName="transform" type="translate" values="0 0; 0 -60; 0 0" dur="3.4s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
-          </g>
-        </svg>
+      <div class="hero-art">
+        <div class="hero-phone">
+          <span class="live"><i></i> Live gameplay</span>
+          <video src="assets/gameplay-demo.mp4" poster="assets/shot-play.png"
+                 autoplay muted loop playsinline preload="metadata"
+                 aria-label="Twinstar: Mirror Comets gameplay clip"></video>
+        </div>
       </div>
     </div>
 
@@ -352,12 +345,67 @@
     <div class="sec-head reveal">
       <div class="kicker">Collect · Customize</div>
       <h2>Earn stars. Dress your comet.</h2>
-      <p>A star for every gate you pass — one shared wallet across all modes. Unlock ten planets by score, and buy twenty hand-drawn character skins in the Shop, each with its own procedural animation.</p>
+      <p>A <img class="star-ico" src="assets/skins/starlet.svg" alt="star"/>star for every gate you pass — one shared wallet across all modes. Unlock ten planets by score, buy twenty hand-drawn character skins in the Shop — each with its own procedural animation — and earn the exclusive <b style="color:#ffcf5a">Lodestar</b> on a 7-day login streak.</p>
     </div>
 
     <div class="planets reveal" id="planets"></div>
 
     <div class="skins-grid reveal" id="skinsGrid"></div>
+  </section>
+
+  <!-- REWARDS / LIVE-OPS -->
+  <section class="sec wrap" id="rewards">
+    <div class="sec-head reveal">
+      <div class="kicker">Reasons to come back</div>
+      <h2>Daily rewards &amp; second chances</h2>
+      <p>Fresh goals every day, free loot after every run, and a few ways to push a great run even further.</p>
+    </div>
+    <div class="rewards reveal">
+      <div class="reward">
+        <div class="rico"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div>
+        <h3>Daily Mission</h3>
+        <p>A new objective every day — reach a target in Hard or Easy, or beat the bot. Clear it once a day for a big bonus.</p>
+        <span class="reward-amt"><img src="assets/skins/starlet.svg" alt="star"/> +150 a day</span>
+      </div>
+      <div class="reward">
+        <div class="rico"><svg viewBox="0 0 24 24"><path d="M4 20v-5M4 15a4 4 0 0 1 4-4M9 20v-9M9 11a4 4 0 0 1 4-4M14 20V8M14 8a4 4 0 0 1 4-4M19 20V6"/></svg></div>
+        <h3>Login Streak</h3>
+        <p>Open the game on consecutive days and the reward climbs — 20 stars up to 150. Day 7 also drops the exclusive Lodestar skin.</p>
+        <span class="reward-amt"><img src="assets/skins/starlet.svg" alt="star"/> 20 → 150 + skin</span>
+      </div>
+      <div class="reward">
+        <div class="tag">FREE</div>
+        <div class="rico"><svg viewBox="0 0 24 24"><path d="M3 8h18v3H3zM4 11v9h16v-9M12 8v12M12 8S9 3 6.5 4.5 9 8 12 8zM12 8s3-5 5.5-3.5S15 8 12 8z"/></svg></div>
+        <h3>Mystery Box</h3>
+        <p>One free box after every Hard or Easy run. Open it for stars, a surprise skin, an extra life — or double your run's stars.</p>
+        <span class="reward-amt"><img src="assets/skins/starlet.svg" alt="star"/> Free loot, every run</span>
+      </div>
+      <div class="reward">
+        <div class="tag">ASYNC</div>
+        <div class="rico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2.5"/></svg></div>
+        <h3>Ghost Challenge</h3>
+        <p>Turn any run into a 12-character code. Send it to a friend and they race the exact same seeded course, chasing your score.</p>
+        <span class="reward-amt" style="color:var(--cyan);background:rgba(122,242,255,.08);border-color:var(--line)">Server-free · just a code</span>
+      </div>
+      <div class="reward">
+        <div class="rico"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.5 10.5l7-4M8.5 13.5l7 4"/></svg></div>
+        <h3>Share Card</h3>
+        <p>Every game over can be shared as a branded card with your score, mode, planet and equipped skin — ready to post in a tap.</p>
+        <span class="reward-amt" style="color:var(--cyan);background:rgba(122,242,255,.08);border-color:var(--line)">Show off your best run</span>
+      </div>
+      <div class="reward">
+        <div class="rico"><svg viewBox="0 0 24 24"><path d="M12 3v6M12 3l-3 3M12 3l3 3"/><path d="M5 13a7 7 0 1 0 14 0"/></svg></div>
+        <h3>Guided Tutorial</h3>
+        <p>A one-time guided first run teaches the single input — hold to steer, release to drift — across Twins and Solo before you're on your own.</p>
+        <span class="reward-amt" style="color:var(--cyan);background:rgba(122,242,255,.08);border-color:var(--line)">Easy to start, hard to master</span>
+      </div>
+    </div>
+
+    <div class="chances reveal">
+      <span class="chance"><span class="ci"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 2.3 5.6"/><path d="M4 12V7M4 12h5"/></svg></span> <b>Continue</b> — watch an ad to revive your run</span>
+      <span class="chance"><img src="assets/skins/starlet.svg" alt="star"/> <b>Star Revive</b> — spend 50 stars to keep going</span>
+      <span class="chance"><span class="ci"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span> <b>Double Stars</b> — watch an ad to ×2 your run's haul</span>
+    </div>
   </section>
 
   <!-- GALLERY -->
@@ -367,9 +415,9 @@
       <h2>Built to glow in the dark</h2>
     </div>
     <div class="gallery reveal">
-      <div class="phone"><img src="assets/shot-title.png" alt="Twinstar title screen" loading="lazy"/><div class="cap">Title</div></div>
-      <div class="phone"><img src="assets/shot-play.png" alt="Twinstar gameplay" loading="lazy"/><div class="cap">Aurora · in play</div></div>
-      <div class="phone"><img src="assets/shot-skins.png" alt="Twinstar skins screen" loading="lazy"/><div class="cap">Planet skins</div></div>
+      <div class="phone"><img src="assets/shot-title.png" alt="Twinstar: Mirror Comets title screen" loading="lazy"/><div class="cap">Title</div></div>
+      <div class="phone"><img src="assets/shot-play.png" alt="Twinstar: Mirror Comets gameplay" loading="lazy"/><div class="cap">Aurora · in play</div></div>
+      <div class="phone"><img src="assets/shot-skins.png" alt="Twinstar: Mirror Comets skins screen" loading="lazy"/><div class="cap">Planet skins</div></div>
     </div>
   </section>
 
@@ -378,7 +426,8 @@
     <div class="features reveal">
       <span class="feat"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/></svg> Google Play Games leaderboards</span>
       <span class="feat"><svg viewBox="0 0 24 24"><path d="M4 14a4 4 0 0 1 1-7.9A5 5 0 0 1 19 8a3.5 3.5 0 0 1-.5 7z"/></svg> Cross-device cloud save</span>
-      <span class="feat"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg> Daily star reward</span>
+      <span class="feat"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg> Daily missions &amp; login streaks</span>
+      <span class="feat"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><line x1="9" y1="12" x2="15" y2="12"/></svg> Online, local &amp; async 1v1</span>
       <span class="feat"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/></svg> One-thumb controls</span>
       <span class="feat"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-11"/></svg> Free to play</span>
     </div>
@@ -387,9 +436,9 @@
   <!-- FINAL CTA -->
   <section class="finale wrap" id="get">
     <div class="glow reveal">
-      <img src="assets/icon-512.png" alt="Twinstar: Mirror Comet"/>
+      <img src="assets/icon-512.png" alt="Twinstar: Mirror Comets"/>
       <h2>Ready to thread the needle?</h2>
-      <p>Twinstar: Mirror Comet is free on Android. One input, two paths, infinite sky.</p>
+      <p>Twinstar: Mirror Comets is free on Android. One input, two paths, infinite sky.</p>
       <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.twinstar.app">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 2.5v19a1 1 0 0 0 1.5.87l16-9.5a1 1 0 0 0 0-1.74l-16-9.5A1 1 0 0 0 3 2.5z"/></svg>
         Get it on Google Play
@@ -408,7 +457,7 @@
         <a href="https://play.google.com/store/apps/details?id=com.twinstar.app">Google Play</a>
       </nav>
     </div>
-    <div class="copy">© <span id="yr"></span> Twinstar · com.twinstar.app — Made for one thumb and a dark room.</div>
+    <div class="copy">© <span id="yr"></span> Twinstar: Mirror Comets · com.twinstar.app — Made for one thumb and a dark room.</div>
   </div>
 </footer>
 
@@ -434,7 +483,7 @@
   const PAL = [
     ['AURORA','#7af2ff'],['SEAFOAM','#86f0d4'],['EMERALD','#84f0a8'],['CITRINE','#dcf07a'],
     ['AMBER','#ffd884'],['CORAL','#ffaa84'],['ROSE','#ff9eb5'],['MAGENTA','#ff84d8'],
-    ['LILAC','#c9a6ff'],['INDIGO','#8ea0ff']
+    ['LILAC','#c9a6ff'],['INDIGO','#84a6ff']
   ];
   document.getElementById('paletteBar').innerHTML =
     PAL.map(p=>`<i style="background:${p[1]}" title="${p[0]}"></i>`).join('');
@@ -453,7 +502,8 @@
       <b>${p[0]}</b><span>Score ${p[2]}</span>
     </div>`).join('');
 
-  // ---- character skins ----
+  // ---- character skins (20 bought with stars in the Shop, ordered by price,
+  //      + the exclusive Lodestar earned on a 7-day login streak) ----
   const SKINS = [
     ['starlet','Starlet',100],['meteor','Meteor',100],['cryoid','Cryoid',100],
     ['alien','Visitor',200],['octopod','Octopod',200],['blob','Blob',200],
@@ -461,12 +511,16 @@
     ['ufo','Saucer',2500],['rocket','Rocket',2500],['warhead','Warhead',2500],
     ['torpedo','Torpedo',2500],['shuttle','Orbiter',2500],['cruiser','Cruiser',2500],
     ['supernova','Supernova',3000],['pulsar','Pulsar',3000],['fighter','Interceptor',5000],
-    ['phoenix','Phoenix',7500],['eye','Nebula Eye',10000]
+    ['phoenix','Phoenix',7500],['eye','Nebula Eye',10000],
+    ['lodestar','Lodestar',0,'excl']
   ];
   document.getElementById('skinsGrid').innerHTML = SKINS.map(s=>`
-    <div class="skin">
+    <div class="skin${s[3]==='excl'?' excl':''}">
       <img src="assets/skins/${s[0]}.svg" alt="${s[1]} skin" loading="lazy"/>
-      <b>${s[1]}</b><div class="price">${s[2].toLocaleString()}</div>
+      <b>${s[1]}</b>
+      ${s[3]==='excl'
+        ? '<div class="excl-tag">7-DAY STREAK</div>'
+        : `<div class="price"><img src="assets/skins/starlet.svg" alt="star"/>${s[2].toLocaleString()}</div>`}
     </div>`).join('');
 
   // ---- scroll reveal ----
