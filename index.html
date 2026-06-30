@@ -200,6 +200,27 @@
   .reward .reward-amt img{width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,210,74,.5))}
   .reward .tag{position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--bg-edge);background:var(--cyan);padding:3px 9px;border-radius:999px}
 
+  /* ---------- mystery-box odds table ---------- */
+  .odds{margin-top:24px;background:var(--card);border:1px solid rgba(255,207,90,.28);border-radius:18px;padding:26px 24px;overflow:hidden;position:relative}
+  .odds-head{display:flex;align-items:center;gap:12px}
+  .odds-head .mbico{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:11px;background:rgba(255,210,74,.1);border:1px solid rgba(255,207,90,.3)}
+  .odds-head .mbico svg{width:24px;height:24px;stroke:#ffd24a;fill:none;stroke-width:1.6}
+  .odds-head h3{font-family:var(--display);font-weight:500;font-size:20px}
+  .odds-sub{color:var(--ink-dim);font-size:14px;margin:8px 0 20px}
+  .odds-list{display:grid;gap:11px}
+  .odds-row{display:grid;grid-template-columns:minmax(118px,170px) 1fr 50px;align-items:center;gap:14px}
+  .odds-row .lbl{display:flex;align-items:center;gap:7px;font-family:var(--body);font-size:14px;color:var(--ink)}
+  .odds-row .lbl img{width:15px;height:15px;flex:none;filter:drop-shadow(0 0 5px rgba(255,210,74,.5))}
+  .odds-row .lbl .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .odds-row .track{height:10px;border-radius:99px;background:rgba(255,255,255,.06)}
+  .odds-row .fill{height:100%;border-radius:99px;min-width:6px}
+  .odds-row .pct{font-family:var(--mono);font-size:13px;text-align:right;color:var(--ink)}
+  .odds-foot{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--ink-faint);margin-top:18px;line-height:1.7}
+  @media(max-width:560px){
+    .odds-row{grid-template-columns:1fr 46px;grid-template-areas:"lbl pct" "track track";gap:6px 12px}
+    .odds-row .lbl{grid-area:lbl}.odds-row .pct{grid-area:pct}.odds-row .track{grid-area:track}
+  }
+
   /* ---------- second-chance row ---------- */
   .chances{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:30px}
   .chance{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.03em;color:var(--ink-dim);
@@ -399,6 +420,52 @@
         <p>A one-time guided first run teaches the single input — hold to steer, release to drift — across Twins and Solo before you're on your own.</p>
         <span class="reward-amt" style="color:var(--cyan);background:rgba(122,242,255,.08);border-color:var(--line)">Easy to start, hard to master</span>
       </div>
+    </div>
+
+    <div class="odds reveal">
+      <div class="odds-head">
+        <span class="mbico"><svg viewBox="0 0 24 24"><path d="M3 8h18v3H3zM4 11v9h16v-9M12 8v12M12 8S9 3 6.5 4.5 9 8 12 8zM12 8s3-5 5.5-3.5S15 8 12 8z"/></svg></span>
+        <h3>What's in the Mystery Box?</h3>
+      </div>
+      <p class="odds-sub">A free box drops after every Hard or Easy run. One tap rolls a single prize from the table below.</p>
+      <div class="odds-list">
+        <div class="odds-row">
+          <span class="lbl"><img src="assets/skins/starlet.svg" alt="star"/> +5 stars</span>
+          <span class="track"><span class="fill" style="width:100%;background:linear-gradient(90deg,#ffae3d,#ffd24a)"></span></span>
+          <span class="pct">50%</span>
+        </div>
+        <div class="odds-row">
+          <span class="lbl"><span class="dot" style="background:rgba(230,237,247,.4)"></span> Nothing</span>
+          <span class="track"><span class="fill" style="width:48%;background:rgba(230,237,247,.28)"></span></span>
+          <span class="pct">24%</span>
+        </div>
+        <div class="odds-row">
+          <span class="lbl"><img src="assets/skins/starlet.svg" alt="star"/> +10 stars</span>
+          <span class="track"><span class="fill" style="width:20%;background:linear-gradient(90deg,#ffae3d,#ffd24a)"></span></span>
+          <span class="pct">10%</span>
+        </div>
+        <div class="odds-row">
+          <span class="lbl"><img src="assets/skins/starlet.svg" alt="star"/> +20 stars</span>
+          <span class="track"><span class="fill" style="width:10%;background:linear-gradient(90deg,#ffae3d,#ffd24a)"></span></span>
+          <span class="pct">5%</span>
+        </div>
+        <div class="odds-row">
+          <span class="lbl"><span class="dot" style="background:#c9a6ff"></span> Double run stars</span>
+          <span class="track"><span class="fill" style="width:10%;background:#c9a6ff"></span></span>
+          <span class="pct">5%</span>
+        </div>
+        <div class="odds-row">
+          <span class="lbl"><span class="dot" style="background:#7af2ff"></span> New skin</span>
+          <span class="track"><span class="fill" style="width:8%;background:#7af2ff"></span></span>
+          <span class="pct">≤4%</span>
+        </div>
+        <div class="odds-row">
+          <span class="lbl"><span class="dot" style="background:#ff9eb5"></span> Extra life</span>
+          <span class="track"><span class="fill" style="width:4%;background:#ff9eb5"></span></span>
+          <span class="pct">2%</span>
+        </div>
+      </div>
+      <p class="odds-foot">Bars are relative. Skin odds (0.5% per cheaper skin you don't own yet, up to 4%) shrink as you collect them — any unused chance rolls into “Nothing”.</p>
     </div>
 
     <div class="chances reveal">
