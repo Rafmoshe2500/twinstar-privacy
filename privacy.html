@@ -137,14 +137,18 @@
       <span class="name">Twinstar: Mirror Comets</span>
     </header>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated · June 14, 2026</div>
+    <div class="updated">Last updated · August 4, 2026</div>
 
     <p>
-      Twinstar: Mirror Comets is a mobile game published by Twinstar: Mirror Comets Games. The core game is
+      Twinstar: Mirror Comets is a mobile game published by Twinstar: Mirror Comets Games, available
+      on both Android and iOS under the same package/bundle identifier,
+      <code>com.twinstar.app</code>. The core game is
       designed to be playable fully offline, and we operate no game servers
       that store your personal data. Optional features — online 1&nbsp;v&nbsp;1
       multiplayer and cloud&nbsp;save — rely on Google and a network-relay
-      provider, and are described below. This page covers the limited
+      provider, and are described below. Cloud save itself is available on
+      Android only in this version; see "Game progress and responsibility"
+      below for how iOS differs. This page covers the limited
       categories of data processed by the third-party services we integrate
       with, what they are used for, and how to opt out.
     </p>
@@ -152,8 +156,8 @@
     <h2>Data we collect</h2>
     <ul>
       <li>
-          <strong>Google Play Games Services (leaderboards)</strong>
-If you choose to sign in to Google Play Games, Google processes your Play Games
+          <strong>Google Play Games Services (Android &mdash; leaderboards)</strong>
+On Android, if you choose to sign in to Google Play Games, Google processes your Play Games
 player ID, your gamer profile (such as your display name), and the game scores you
 submit, in order to provide global leaderboards. This data is handled by Google, not
 by us — we never receive your Google account email or password. Only your score is
@@ -161,20 +165,35 @@ submitted; your local game progress (stars, skins) is not uploaded. Signing in i
 optional, and the game is fully playable without it.
         </li>
       <li>
-        <strong>Advertising ID</strong> — a resettable, device-level
-        identifier provided by your operating system. It is used by Google
+        <strong>Apple Game Center (iOS &mdash; leaderboards)</strong>
+        — if you choose to sign in to Game Center, Apple processes your
+        Game Center player ID, your display name, and the game scores you
+        submit, in order to provide leaderboards. This data is handled by
+        Apple, not by us. Game Center is used for leaderboards only —
+        on iOS your in-game progress is <strong>not</strong> backed up to
+        the cloud (see "Game progress and responsibility" below). Signing
+        in is optional, and the game is fully playable without it.
+      </li>
+      <li>
+        <strong>Advertising ID / IDFA</strong> — a resettable, device-level
+        identifier provided by your operating system: the Advertising ID
+        on Android, the IDFA on iOS. It is used by Google
         AdMob to serve advertisements inside the game and, with your
-        explicit consent, to personalize those advertisements. You can
-        reset this identifier or opt out of personalized advertising at
-        any time from your device settings (on Android:
-        <em>Settings → Google → Ads</em>).
+        explicit consent, to personalize those advertisements. On Android
+        you can reset this identifier or opt out of personalized
+        advertising at any time from your device settings
+        (<em>Settings → Google → Ads</em>). On iOS, using the IDFA for
+        tracking requires your permission via Apple's App Tracking
+        Transparency prompt — see <em>App Tracking Transparency (iOS)</em>
+        below.
       </li>
       <li>
         <strong>Crash and performance reports</strong> — when the game
         crashes or behaves abnormally, anonymous diagnostic data
         (device model, OS version, stack traces) may be sent to Google
-        Play Console. We use this data exclusively to improve game
-        stability. It cannot be used to identify you.
+        Play Console (Android) or Apple App Store Connect (iOS). We use
+        this data exclusively to improve game stability. It cannot be
+        used to identify you.
       </li>
       <li>
         <strong>Online multiplayer (IP address &amp; connection data)</strong>
@@ -194,22 +213,55 @@ optional, and the game is fully playable without it.
         you start an online match.
       </li>
       <li>
-        <strong>Cloud save (game progress)</strong> — if you are signed in to
+        <strong>Cloud save (game progress) &mdash; Android only</strong> — if you are signed in to
         Google Play Games, your in-game progress (best scores, unlocked and
         owned skins, star balance, and settings) is saved to Google Play Games
         "Saved Games" (Snapshots), tied to your Google account, so it survives
         reinstalls and syncs across your devices. This data is stored by Google,
         not by us. Cloud save is disabled if you do not sign in to Google Play
-        Games; in that case progress is kept only on your device.
+        Games; in that case progress is kept only on your device. This feature
+        is not available on iOS in this version — see "Game progress and
+        responsibility" below.
       </li>
     </ul>
+
+    <h2>App Tracking Transparency (iOS)</h2>
+    <p>
+      On iOS, the game asks for your permission before Google AdMob is
+      allowed to use your device's advertising identifier (the IDFA) to
+      track you across apps and websites owned by other companies. This is
+      Apple's standard App Tracking Transparency prompt, and how you
+      respond is entirely your choice.
+    </p>
+    <ul>
+      <li>
+        If you <strong>allow</strong> tracking, AdMob may use the IDFA to
+        personalize the ads you see inside the game and to measure how
+        those ads perform.
+      </li>
+      <li>
+        If you <strong>ask the app not to track</strong>, no IDFA is used
+        for tracking. You still see ads, but they are not personalized.
+        Nothing else in the game changes.
+      </li>
+      <li>
+        You can change your choice at any time in iOS
+        <em>Settings → Privacy &amp; Security → Tracking</em>.
+      </li>
+    </ul>
+    <p>
+      The tracking itself is carried out by Google AdMob, not by us: we
+      operate no advertising or analytics infrastructure of our own, we
+      never receive or store tracking data, and we never sell it.
+    </p>
 
     <h2>Data we do not collect</h2>
     <p>
       We do not collect names, email addresses, phone numbers, precise
       (GPS) location, photos, contacts, microphone or camera input, or any
       similar personally identifiable information. We do not receive your
-      Google account email or password. The only network identifier involved
+      Google account email or password, nor your Apple ID or Game Center
+      credentials. The only network identifier involved
       is your IP address, and only during an online multiplayer match as
       described above — it is used solely to establish the connection and is
       not stored by us. The game does not require an account and the
@@ -231,12 +283,12 @@ optional, and the game is fully playable without it.
         is stored on-device and respected by AdMob.
       </li>
       <li>
-        <strong>Google Play Services</strong> &mdash; provides crash
+        <strong>Google Play Services (Android)</strong> &mdash; provides crash
         reporting and game distribution infrastructure. See
         <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.
       </li>
       <li>
-        <strong>Google Play Games Services</strong> — optional sign-in,
+        <strong>Google Play Games Services (Android)</strong> — optional sign-in,
         global leaderboards, and cloud save (Saved Games / Snapshots).
         Governed by the
         <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.
@@ -252,6 +304,11 @@ optional, and the game is fully playable without it.
         STUN/TURN provider (such as Open Relay or ExpressTURN) that helps
         establish, and where necessary relays, the peer-to-peer connection
         between players during an online match.
+      </li>
+      <li>
+        <strong>Apple (Game Center / App Store Connect)</strong> &mdash;
+        provides leaderboards and crash reporting on iOS. See
+        <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.
       </li>
     </ul>
 
@@ -269,36 +326,50 @@ optional, and the game is fully playable without it.
     <p>
       Because we do not store user data on our own servers, there is
       nothing for us to retain or delete on your behalf. To remove all
-      game data from your device, uninstall the application. Cloud-saved
-      progress and leaderboard data are held by Google Play Games and can be
-      deleted from your
+      game data from your device, uninstall the application. On Android,
+      cloud-saved progress and leaderboard data are held by Google Play
+      Games and can be deleted from your
       <a href="https://play.google.com/games" target="_blank" rel="noopener">Google Play Games settings</a>
-      (delete game data). The multiplayer connection handshake is deleted
+      (delete game data). On iOS, leaderboard data (your Game Center player
+      ID, display name, and scores) is held by Apple under your Apple ID;
+      because this version has no cloud save on iOS, there is no
+      cloud-saved progress to delete beyond uninstalling the app. The
+      multiplayer connection handshake is deleted
       automatically once a match connects and is not retained. To reset the
-      Advertising ID, use your device settings as described above. For
+      Advertising ID (Android) or change your tracking choice (iOS), use
+      your device settings as described above. For
       data held by Google (AdMob, Play Services, Firebase), please refer to
-      <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google's data &amp; privacy controls</a>.
+      <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google's data &amp; privacy controls</a>;
+      for data held by Apple (Game Center, App Store Connect), please refer to
+      <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>.
     </p>
 
     <h2>Game progress and responsibility</h2>
     <p>
       Your in-game progress &mdash; including stars, scores, and unlocked or
-      purchased skins &mdash; is stored on your device and, when you are signed
-      in to Google Play Games, backed up to your Google account via Google Play
-      Games "Saved Games" (Snapshots). We do not run our own progress servers;
-      this backup is provided and controlled entirely by Google Play Games.
+      purchased skins &mdash; is stored on your device. On Android, when you
+      are signed in to Google Play Games, it is also backed up to your Google
+      account via Google Play Games "Saved Games" (Snapshots); this backup is
+      provided and controlled entirely by Google Play Games, and we do not
+      run our own progress servers. We strongly recommend signing in to
+      Google Play Games on Android so your progress is backed up.
     </p>
     <p>
-      Because saving and syncing depend on Google Play services, your device,
-      and your Google account, we cannot guarantee that progress will never be
-      lost. To the maximum extent permitted by law, we accept no responsibility
-      or liability for any loss, reset, or corruption of stars, scores, skins,
-      or other in-game progress &mdash; including, without limitation, cases
-      caused by reinstalling the game, switching or resetting devices, signing
-      out of Google Play Games, clearing app data, or interruptions to Google
-      services. The game is provided "as is", without warranty of any kind. We
-      strongly recommend signing in to Google Play Games so your progress is
-      backed up to your Google account.
+      On iOS, this version of the game stores your progress on your device
+      only &mdash; there is no cloud backup. Uninstalling the game, switching
+      devices, or losing your device will permanently lose your in-game
+      progress, with nothing to restore it from.
+    </p>
+    <p>
+      Because saving and syncing, where available, depend on your platform's
+      services, your device, and (on Android) your Google account, we cannot
+      guarantee that progress will never be lost. To the maximum extent
+      permitted by law, we accept no responsibility or liability for any loss,
+      reset, or corruption of stars, scores, skins, or other in-game progress
+      &mdash; including, without limitation, cases caused by reinstalling the
+      game, switching or resetting devices, signing out of Google Play Games
+      on Android, clearing app data, or interruptions to platform services.
+      The game is provided "as is", without warranty of any kind.
     </p>
 
     <h2>Changes to this policy</h2>
