@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -108 216 216" width="216" height="216">
+  <circle r="86.4" fill="#4fe0a8" opacity="0.11" />
+  <circle r="45" fill="#0d2b22" opacity="0.35" />
+  <circle r="34.2" fill="none" stroke="#1f6b4e" stroke-width="12.96" />
+  <circle r="34.2" fill="none" stroke="#3fae7c" stroke-width="7.2" />
+  <circle r="36.72" fill="none" stroke="#8ff0c4" stroke-width="1.8" opacity="0.75" />
+  <line x1="29.284" y1="5.936" x2="37.399" y2="7.581" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="24.784" y1="16.691" x2="31.651" y2="21.316" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="16.51" y1="24.905" x2="21.085" y2="31.806" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="5.722" y1="29.327" x2="7.308" y2="37.454" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="-5.936" y1="29.284" x2="-7.581" y2="37.399" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="-16.691" y1="24.784" x2="-21.316" y2="31.651" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="-24.905" y1="16.51" x2="-31.806" y2="21.085" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="-29.327" y1="5.722" x2="-37.454" y2="7.308" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="-29.284" y1="-5.936" x2="-37.399" y2="-7.581" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="-24.784" y1="-16.691" x2="-31.651" y2="-21.316" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="-16.51" y1="-24.905" x2="-21.085" y2="-31.806" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="-5.722" y1="-29.327" x2="-7.308" y2="-37.454" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="5.936" y1="-29.284" x2="7.581" y2="-37.399" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="16.691" y1="-24.784" x2="21.316" y2="-31.651" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="24.905" y1="-16.51" x2="31.806" y2="-21.085" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <line x1="29.327" y1="-5.722" x2="37.454" y2="-7.308" stroke="#0f4433" stroke-width="1.8" opacity="0.6" />
+  <path d="M 52.56 -1.44 L 23.76 -15.12 L 21.6 13.68 Z" fill="#d9b64a" />
+  <path d="M 52.56 -1.44 L 28.08 -10.8 L 27.36 2.16 Z" fill="#f4dd8e" />
+  <circle cx="30.96" cy="-5.76" r="2.88" fill="#1a1004" />
+</svg>

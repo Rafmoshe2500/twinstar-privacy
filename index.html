@@ -160,12 +160,18 @@
   .card .ico svg{width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:1.6}
   .card .tag{position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--bg-edge);background:var(--cyan);padding:3px 9px;border-radius:999px}
 
-  /* ---------- planets ---------- */
-  .planets{display:flex;gap:18px;overflow-x:auto;padding:8px 4px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  /* ---------- planets (1:1 with scripts/planet_view.gd in the game) ---------- */
+  .planets{display:flex;gap:22px;overflow-x:auto;padding:14px 16px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
   .planets::-webkit-scrollbar{height:6px}.planets::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px}
-  .planet{flex:none;width:128px;text-align:center;scroll-snap-align:start}
-  .orb{width:96px;height:96px;border-radius:50%;margin:0 auto 12px;position:relative;box-shadow:inset -14px -14px 30px rgba(0,0,0,.55),0 0 26px rgba(122,242,255,.12)}
-  .orb.ring::after{content:"";position:absolute;inset:50% -26% auto -26%;height:18px;transform:translateY(-50%) rotate(-16deg);border-radius:50%;border:6px solid rgba(255,216,132,.5);border-bottom-color:transparent;border-top-color:rgba(255,216,132,.85)}
+  .planet{flex:none;width:132px;text-align:center;scroll-snap-align:start}
+  .orb{display:block;width:112px;height:112px;margin:0 auto 12px;overflow:visible}
+  .orb .p-surf{animation:p-spin linear infinite}
+  .orb .p-corona{transform-origin:100px 100px;animation:p-rot 80s linear infinite}
+  .orb .p-pulse{transform-origin:100px 100px;animation:p-pulse 3.5s ease-in-out infinite}
+  @keyframes p-spin{from{transform:translateX(0)}to{transform:translateX(-200px)}}
+  @keyframes p-rot{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  @keyframes p-pulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.85;transform:scale(1.06)}}
+  @media(prefers-reduced-motion:reduce){.orb .p-surf,.orb .p-corona,.orb .p-pulse{animation:none}}
   .planet b{display:block;font-family:var(--display);font-size:14px;letter-spacing:.08em}
   .planet span{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.1em}
 
@@ -185,6 +191,10 @@
   .skin .price img{width:13px;height:13px;filter:drop-shadow(0 0 5px rgba(255,210,74,.5))}
   .skin.excl{border-color:rgba(255,207,90,.45);background:radial-gradient(120px 120px at 50% 35%,rgba(255,207,90,.12),transparent 70%),var(--card)}
   .skin .excl-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:#0a0f1f;background:linear-gradient(180deg,#ffe49a,#ffcf5a);padding:2px 8px;border-radius:99px;margin-top:4px}
+  .skin.soon{border-style:dashed;border-color:rgba(122,242,255,.35);background:radial-gradient(120px 120px at 50% 35%,rgba(122,242,255,.06),transparent 70%),var(--card)}
+  .skin.soon img{opacity:.6;filter:grayscale(.3) drop-shadow(0 6px 14px rgba(0,0,0,.5))}
+  .skin.soon b{color:var(--ink-faint)}
+  .skin .soon-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--cyan);background:rgba(122,242,255,.12);border:1px solid rgba(122,242,255,.35);padding:2px 8px;border-radius:99px;margin-top:4px}
 
   /* ---------- rewards / live-ops ---------- */
   .rewards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -493,7 +503,7 @@
     <div class="sec-head reveal">
       <div class="kicker">Collect · Customize</div>
       <h2>Earn stars. Dress your comet.</h2>
-      <p>A <img class="star-ico" src="assets/skins/starlet.svg" alt="star"/>star for every gate you pass — one shared wallet across all modes. Unlock ten planets by score, buy twenty hand-drawn character skins in the Shop — each with its own procedural animation — and earn the exclusive <b style="color:#ffcf5a">Lodestar</b> on a 7-day login streak.</p>
+      <p>A <img class="star-ico" src="assets/skins/starlet.svg" alt="star"/>star for every gate you pass — one shared wallet across all modes. Unlock ten planets by score, buy twenty hand-drawn character skins in the Shop — each with its own procedural animation — and earn the exclusive <b style="color:#ffcf5a">Lodestar</b> on a 7-day login streak. Five more skins are drawn and animated already, and land in a coming update.</p>
     </div>
 
     <div class="planets reveal" id="planets"></div>
@@ -698,38 +708,169 @@
   document.getElementById('paletteBar').innerHTML =
     PAL.map(p=>`<i style="background:${p[1]}" title="${p[0]}"></i>`).join('');
 
-  // ---- planets ----
+  // ---- planets - 1:1 port of scripts/planet_view.gd in the game (which itself
+  //      ports twinstar_design/project/planets.jsx). Same body colors, same
+  //      layer order, same surface marks, same rotation periods. Colors come
+  //      straight out of Planets.BODIES; the score labels are the inclusive
+  //      20-point bands (Moon 0-19 ... Sun 180+). ----
+  const VB = 200, BODY_R = 90, TILE = [0, 200];
   const PLANETS = [
-    ['MOON','#aeb6c4 30%,#5a6376',0],['MERCURY','#caa67e 30%,#6e4f33',20],
-    ['MARS','#e2734a 30%,#7a2f1c',40],['VENUS','#f0d59a 30%,#8a6d3a',60],
-    ['EARTH','#6fb6e8 25%,#1f5a3a',80],['NEPTUNE','#5b8cff 30%,#1f2f7a',100],
-    ['URANUS','#9fe6e0 30%,#2f7a76',120],['SATURN','#e8c98a 30%,#8a6a35',140],
-    ['JUPITER','#e0a878 25%,#7a4a2a',160],['SUN','#fff1a8 20%,#f0a830 70%,#c44a10',180]
+    {id:'moon',   name:'MOON',   score:0,  main:'#8b909c',hi:'#e6e9ee',sh:'#1f2229',gl:'#cfd4dc',surf:'moon',   rot:28},
+    {id:'mercury',name:'MERCURY',score:20, main:'#8a6b56',hi:'#d4b89e',sh:'#231711',gl:'#c4a888',surf:'mercury',rot:24},
+    {id:'mars',   name:'MARS',   score:40, main:'#b85838',hi:'#e89868',sh:'#3a1208',gl:'#e88858',surf:'mars',   rot:22},
+    {id:'venus',  name:'VENUS',  score:60, main:'#d8a868',hi:'#fff0c8',sh:'#3a2810',gl:'#f0c888',surf:'venus',  rot:20},
+    {id:'earth',  name:'EARTH',  score:80, main:'#2a5a8a',hi:'#88b8e0',sh:'#0a1a30',gl:'#88b8e0',surf:'earth',  rot:18},
+    {id:'neptune',name:'NEPTUNE',score:100,main:'#3a5a9e',hi:'#7a9ad8',sh:'#0a1530',gl:'#7a9ad8',surf:'neptune',rot:16},
+    {id:'uranus', name:'URANUS', score:120,main:'#7ac8c8',hi:'#c8eeee',sh:'#1a3838',gl:'#a8e0e0',surf:'uranus', rot:15},
+    {id:'saturn', name:'SATURN', score:140,main:'#c89a55',hi:'#f0d090',sh:'#3a2810',gl:'#f0c888',surf:'saturn', rot:14,
+      ring:{rx:130,ry:22,tilt:-15,color:'#d8b878',edge:'#fff0c8'}},
+    {id:'jupiter',name:'JUPITER',score:160,main:'#c89668',hi:'#f0c898',sh:'#3a2010',gl:'#f0b888',surf:'jupiter',rot:12},
+    {id:'sun',    name:'SUN',    score:180,main:'#ffb030',hi:'#fff4a0',sh:'#a04010',gl:'#ffc858',surf:'sun',    rot:10,sun:true}
   ];
+
+  // -- primitives (mirror planet_view.gd's _ellipse_fill / _crater / _gas_bands)
+  const el=(x,y,rx,ry,f,o)=>`<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="${f}" fill-opacity="${o}"/>`;
+  const ci=(x,y,r,f,o)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${f}" fill-opacity="${o}"/>`;
+  const crater=(x,y,r,base,rim)=>ci(x,y,r,base,.55)+ci(x-r*.25,y-r*.25,r*.7,rim,.35);
+  const pgon=(pts,dx,f,o)=>`<polygon points="${pts.map(q=>(q[0]+dx)+','+q[1]).join(' ')}" fill="${f}" fill-opacity="${o}"/>`;
+  const bands=(cols,a)=>{const st=VB/cols.length;return cols.map((c,i)=>
+    `<rect x="0" y="${i*st}" width="${VB*2}" height="${st}" fill="${c}" fill-opacity="${a}"/>`).join('');};
+
+  // -- surface mark sets, coordinates 1:1 from planet_view.gd (viewBox 0..200).
+  //    Each mark is emitted twice (x and x+200) so the leftward scroll wraps.
+  const MARKS = {
+    moon(){let o='';
+      [[50,78,22],[110,60,14],[82,110,28],[140,95,18],[60,140,16],[120,145,22],[165,130,12],[30,110,10]]
+        .forEach(p=>TILE.forEach(dx=>o+=el(p[0]+dx,p[1],p[2],p[2]*.7,'#4a4f5c',.45)));
+      [[68,50,5],[125,80,4],[95,130,6],[150,60,3.5],[40,90,4],[155,155,5]]
+        .forEach(c=>TILE.forEach(dx=>o+=crater(c[0]+dx,c[1],c[2],'#2c3038','#cfd4dc')));
+      return o;},
+    mercury(){let o='';
+      for(let i=0;i<22;i++){const x=20+(i*47)%180,y=25+(i*73)%150,r=3+(i*13)%5;
+        TILE.forEach(dx=>o+=crater(x+dx,y,r,'#3a2e26','#a08772'));}
+      return o;},
+    mars(){let o='';
+      [[60,100,28,18,'#6a2818',.55],[120,80,22,14,'#5a2010',.45],[150,130,18,11,'#6a2818',.4]]
+        .forEach(s=>TILE.forEach(dx=>o+=el(s[0]+dx,s[1],s[2],s[3],s[4],s[5])));
+      o+=el(100,22,40,8,'#f5e8d6',.85)+el(100,178,36,7,'#f5e8d6',.85); // polar caps: drawn once
+      return o;},
+    venus(){let o='';
+      TILE.forEach(dx=>{o+=el(100+dx,55,120,6,'#e8c98a',.5)+el(100+dx,85,120,9,'#c89a55',.4)
+        +el(100+dx,115,120,7,'#e8c98a',.45)+el(100+dx,140,120,5,'#c89a55',.35)
+        +`<path d="M${40+dx},100 Q${70+dx},88 ${100+dx},100 Q${130+dx},112 ${160+dx},102" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="1.5"/>`;});
+      return o;},
+    earth(){let o='';
+      const c1=[[50,70],[70,60],[88,72],[95,90],[80,100],[65,95],[55,88],[45,80]];
+      const c2=[[110,50],[140,55],[145,85],[138,95],[122,92],[108,78]];
+      const c3=[[60,120],[90,115],[100,140],[95,158],[70,152],[55,138]];
+      const c4=[[135,130],[160,128],[165,150],[150,160],[138,150]];
+      TILE.forEach(dx=>{o+=pgon(c1,dx,'#3a7a3a',.85)+pgon(c2,dx,'#4a8a4a',.85)
+        +pgon(c3,dx,'#3a7a3a',.85)+pgon(c4,dx,'#4a8a4a',.85);});
+      TILE.forEach(dx=>{o+=el(105+dx,65,22,4,'#fff',.5)+el(70+dx,110,14,3,'#fff',.45)+el(150+dx,105,18,3.5,'#fff',.5);});
+      return o;},
+    neptune(){let o=bands(['#3a5a9e','#4a6ab0','#3a5a9e','#3050a0','#4a6ab0','#3a5a9e'],.5);
+      [[60,70,10,5],[130,105,18,7],[95,145,13,6],[165,90,9,4]]
+        .forEach(s=>TILE.forEach(dx=>o+=el(s[0]+dx,s[1],s[2],s[3],'#0a1840',.65)));
+      return o;},
+    uranus(){let o=bands(['#9adde0','#aae5e8','#9adde0','#aae5e8','#9adde0','#aae5e8'],.5);
+      [[40,78,22],[110,60,18],[80,130,24],[150,110,16],[60,155,20]]
+        .forEach(w=>TILE.forEach(dx=>o+=el(w[0]+dx,w[1],w[2],3,'#6abec0',.45)));
+      return o;},
+    saturn(){let o=bands(['#d4b070','#c89a55','#e0bc80','#c89a55','#d4b070','#b88a40'],.5);
+      [[50,68,28],[120,90,22],[80,115,30],[150,135,24],[40,155,26]]
+        .forEach(s=>TILE.forEach(dx=>o+=el(s[0]+dx,s[1],s[2],3.5,'#8a5e28',.5)));
+      return o;},
+    jupiter(){let o=bands(['#c89668','#e0b888','#a87248','#e8c498','#a87248','#c89668','#d8a878'],.5);
+      [[50,60,8],[85,88,6],[150,70,7],[60,130,9],[120,155,7],[165,135,6]]
+        .forEach(c=>TILE.forEach(dx=>o+=el(c[0]+dx,c[1],c[2],c[2]*.55,'#5a3018',.55)));
+      o+=el(125,115,16,9,'#8a3818',.85)+el(325,115,16,9,'#8a3818',.85); // great red spot
+      return o;},
+    sun(){let o='';
+      for(let i=0;i<30;i++){const x=20+(i*41)%180,y=20+(i*67)%160,r=6+(i*7)%10;
+        o+=ci(x,y,r,'#ffe580',.4)+ci(x+200,y,r,'#ffe580',.4);}
+      o+=ci(90,100,6,'#8a3818',.7)+ci(140,80,4,'#8a3818',.6)
+        +ci(290,100,6,'#8a3818',.7)+ci(340,80,4,'#8a3818',.6);
+      return o;}
+  };
+
+  function planetSVG(p){
+    const u=p.id;
+    const defs=`<defs>`
+      +`<radialGradient id="pb-${u}" gradientUnits="userSpaceOnUse" cx="70" cy="64" r="136">`
+      +`<stop offset="0" stop-color="${p.hi}"/><stop offset=".45" stop-color="${p.main}"/><stop offset="1" stop-color="${p.sh}"/></radialGradient>`
+      +`<radialGradient id="pt-${u}" gradientUnits="userSpaceOnUse" cx="76" cy="70" r="156">`
+      +`<stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>`
+      +`<radialGradient id="pe-${u}" gradientUnits="userSpaceOnUse" cx="100" cy="100" r="100">`
+      +`<stop offset=".78" stop-color="${p.sh}" stop-opacity="0"/><stop offset="1" stop-color="${p.sh}" stop-opacity=".7"/></radialGradient>`
+      +`<radialGradient id="ph-${u}" gradientUnits="userSpaceOnUse" cx="100" cy="100" r="100">`
+      +`<stop offset=".8" stop-color="${p.gl}" stop-opacity="0"/><stop offset=".92" stop-color="${p.gl}" stop-opacity=".25"/>`
+      +`<stop offset="1" stop-color="${p.gl}" stop-opacity="0"/></radialGradient>`
+      +(p.sun?`<radialGradient id="ps-${u}" gradientUnits="userSpaceOnUse" cx="100" cy="100" r="98">`
+      +`<stop offset="0" stop-color="${p.gl}" stop-opacity="1"/><stop offset="1" stop-color="${p.gl}" stop-opacity="0"/></radialGradient>`:'')
+      +`<clipPath id="pc-${u}"><circle cx="100" cy="100" r="${BODY_R}"/></clipPath></defs>`;
+
+    let corona='';
+    if(p.sun){let ln='';
+      for(let i=0;i<16;i++){const a=(i/16)*Math.PI*2,inner=92,outer=105+(i%3)*4;
+        ln+=`<line x1="${(100+Math.cos(a)*inner).toFixed(2)}" y1="${(100+Math.sin(a)*inner).toFixed(2)}"`
+          +` x2="${(100+Math.cos(a)*outer).toFixed(2)}" y2="${(100+Math.sin(a)*outer).toFixed(2)}"/>`;}
+      corona=`<g class="p-corona" stroke="${p.gl}" stroke-opacity=".5" stroke-width="3" stroke-linecap="round">${ln}</g>`;}
+
+    let ringBack='',ringFront='';
+    if(p.ring){const R=p.ring,t=`rotate(${R.tilt} 100 100)`;
+      ringBack=`<ellipse cx="100" cy="100" rx="${R.rx}" ry="${R.ry}" fill="none" stroke="${R.color}" stroke-opacity=".85" stroke-width="6" transform="${t}"/>`;
+      ringFront=`<g transform="${t}" fill="none" stroke-linecap="round">`
+        +`<path d="M${100+R.rx},100 A${R.rx},${R.ry} 0 0 1 ${100-R.rx},100" stroke="${R.color}" stroke-opacity=".95" stroke-width="6"/>`
+        +`<path d="M${100+R.rx-8},100 A${R.rx-8},${R.ry-4} 0 0 1 ${100-(R.rx-8)},100" stroke="${R.edge}" stroke-opacity=".7" stroke-width="1.5"/></g>`;}
+
+    const body=`<g clip-path="url(#pc-${u})">`
+      +`<rect x="0" y="0" width="200" height="200" fill="url(#pb-${u})"/>`
+      +`<g class="p-surf" style="animation-duration:${p.rot}s">${MARKS[p.surf]()}</g>`
+      +`<rect x="0" y="0" width="200" height="200" fill="url(#pe-${u})"/>`
+      +`<rect x="0" y="0" width="200" height="200" fill="url(#pt-${u})"/></g>`;
+
+    const pulse=p.sun?`<g class="p-pulse"><rect x="0" y="0" width="200" height="200" fill="url(#ps-${u})"/></g>`:'';
+
+    // layer order matches planet_view.gd: halo, corona, ring-back, body(clip),
+    // ring-front, specular, sun-pulse.
+    return `<svg class="orb" viewBox="0 0 200 200" role="img" aria-label="${p.name} planet skin">${defs}`
+      +`<rect x="0" y="0" width="200" height="200" fill="url(#ph-${u})"/>`
+      +corona+ringBack+body+ringFront
+      +`<ellipse cx="74" cy="62" rx="22" ry="12" fill="#fff" fill-opacity=".18"/>`
+      +pulse+`</svg>`;
+  }
+
   document.getElementById('planets').innerHTML = PLANETS.map(p=>`
     <div class="planet">
-      <div class="orb${p[0]==='SATURN'?' ring':''}" style="background:radial-gradient(circle at 38% 32%,${p[1]})"></div>
-      <b>${p[0]}</b><span>Score ${p[2]}</span>
+      ${planetSVG(p)}
+      <b>${p.name}</b><span>Score ${p.score}</span>
     </div>`).join('');
 
-  // ---- character skins (20 bought with stars in the Shop, ordered by price,
-  //      + the exclusive Lodestar earned on a 7-day login streak) ----
+  // ---- character skins - mirrors scripts/character_skins.gd, in price order.
+  //      20 bought with stars in the Shop + the exclusive Lodestar earned on a
+  //      7-day login streak. Entries flagged 'soon' are finished but are NOT in
+  //      the live build yet, so they show COMING SOON instead of a price. ----
   const SKINS = [
     ['starlet','Starlet',150],['meteor','Meteor',150],['cryoid','Cryoid',150],
     ['alien','Visitor',300],['octopod','Octopod',300],['blob','Blob',300],
-    ['crystal','Prism',750],['bolt','Bolt',750],['satellite','Comsat',2000],
+    ['crystal','Prism',750],['bolt','Bolt',750],['wisp','Wisp',750,'soon'],
+    ['satellite','Comsat',2000],['skyfang','Skyfang',2500,'soon'],
     ['ufo','Saucer',3500],['rocket','Rocket',3500],['warhead','Warhead',3500],
     ['torpedo','Torpedo',3500],['shuttle','Orbiter',3500],['cruiser','Cruiser',3500],
-    ['supernova','Supernova',4500],['pulsar','Pulsar',4500],['fighter','Interceptor',7500],
-    ['phoenix','Phoenix',11000],['eye','Nebula Eye',20000],
+    ['supernova','Supernova',4500],['pulsar','Pulsar',4500],
+    ['ouroboros','Ouroboros',6000,'soon'],['fighter','Interceptor',7500],
+    ['phoenix','Phoenix',11000],['serpent','Sky Serpent',12000,'soon'],
+    ['eye','Nebula Eye',20000],['firstborn','Firstborn',30000,'soon'],
     ['lodestar','Lodestar',0,'excl']
   ];
   document.getElementById('skinsGrid').innerHTML = SKINS.map(s=>`
-    <div class="skin${s[3]==='excl'?' excl':''}">
+    <div class="skin${s[3]==='excl'?' excl':''}${s[3]==='soon'?' soon':''}">
       <img src="assets/skins/${s[0]}.svg" alt="${s[1]} skin" loading="lazy"/>
       <b>${s[1]}</b>
       ${s[3]==='excl'
         ? '<div class="excl-tag">7-DAY STREAK</div>'
+        : s[3]==='soon'
+        ? '<div class="soon-tag">COMING SOON</div>'
         : `<div class="price"><img src="assets/skins/starlet.svg" alt="star"/>${s[2].toLocaleString()}</div>`}
     </div>`).join('');
 

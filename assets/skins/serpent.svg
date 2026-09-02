@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -108 216 216" width="216" height="216">
+  <circle r="90" fill="#3fe0c8" opacity="0.11" />
+  <circle r="46.8" fill="#a9fff0" opacity="0.17" />
+  <path d="M -58.32 18.72 C -34.2 -15.12 -7.2 28.8 17.28 -2.88 C 28.8 -18 37.8 -12.96 43.92 -4.32" fill="none" stroke="#0e4a44" stroke-width="16.56" stroke-linecap="round" />
+  <path d="M -58.32 18.72 C -34.2 -15.12 -7.2 28.8 17.28 -2.88 C 28.8 -18 37.8 -12.96 43.92 -4.32" fill="none" stroke="#1e9a86" stroke-width="11.52" stroke-linecap="round" />
+  <path d="M -58.32 18.72 C -34.2 -15.12 -7.2 28.8 17.28 -2.88 C 28.8 -18 37.8 -12.96 43.92 -4.32" fill="none" stroke="#5fe3c4" stroke-width="5.04" stroke-linecap="round" opacity="0.9" />
+  <path d="M -58.32 18.72 C -34.2 -15.12 -7.2 28.8 17.28 -2.88 C 28.8 -18 37.8 -12.96 43.92 -4.32" fill="none" stroke="#e8fff9" stroke-width="1.8" stroke-linecap="round" opacity="0.6" />
+  <path d="M -19.8 -3.6 L -10.8 -22.32 L -2.88 -6.48 Z" fill="#8ff0dd" opacity="0.8" />
+  <path d="M 0.72 9.36 L 10.8 -7.2 L 15.12 7.92 Z" fill="#8ff0dd" opacity="0.6" />
+  <path d="M 56.16 -5.04 L 36 -15.84 L 30.96 3.6 L 48.96 6.48 Z" fill="#d8b24e" />
+  <line x1="36.72" y1="-14.4" x2="23.76" y2="-33.12" stroke="#f4dd8e" stroke-width="2.52" stroke-linecap="round" />
+  <line x1="43.2" y1="-12.24" x2="35.28" y2="-32.4" stroke="#f4dd8e" stroke-width="2.16" stroke-linecap="round" />
+  <line x1="54" y1="0.72" x2="68.4" y2="-7.2" stroke="#f4dd8e" stroke-width="1.62" stroke-linecap="round" opacity="0.8" />
+  <circle cx="43.92" cy="-7.2" r="2.88" fill="#231703" />
+</svg>

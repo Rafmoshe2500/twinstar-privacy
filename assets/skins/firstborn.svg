@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -108 216 216" width="216" height="216">
+  <circle r="93.6" fill="#b98cff" opacity="0.12" />
+  <circle r="68.4" fill="#7d4fd6" opacity="0.16" />
+  <path d="M 61.2 0 L 15.12 2.88 L 15.12 -2.88 Z" fill="#e6c765" opacity="0.85" />
+  <path d="M 51.246 29.587 L 11.654 10.054 L 14.534 5.066 Z" fill="#e6c765" opacity="0.45" />
+  <path d="M 26.82 46.454 L 5.066 14.534 L 10.054 11.654 Z" fill="#e6c765" opacity="0.45" />
+  <path d="M 0 46.08 L -2.88 15.12 L 2.88 15.12 Z" fill="#e6c765" opacity="0.85" />
+  <path d="M -26.82 46.454 L -10.054 11.654 L -5.066 14.534 Z" fill="#e6c765" opacity="0.45" />
+  <path d="M -51.246 29.587 L -14.534 5.066 L -11.654 10.054 Z" fill="#e6c765" opacity="0.45" />
+  <path d="M -61.2 0 L -15.12 -2.88 L -15.12 2.88 Z" fill="#e6c765" opacity="0.85" />
+  <path d="M -51.246 -29.587 L -11.654 -10.054 L -14.534 -5.066 Z" fill="#e6c765" opacity="0.45" />
+  <path d="M -26.82 -46.454 L -5.066 -14.534 L -10.054 -11.654 Z" fill="#e6c765" opacity="0.45" />
+  <path d="M 0 -46.08 L 2.88 -15.12 L -2.88 -15.12 Z" fill="#e6c765" opacity="0.85" />
+  <path d="M 26.82 -46.454 L 10.054 -11.654 L 5.066 -14.534 Z" fill="#e6c765" opacity="0.45" />
+  <path d="M 51.246 -29.587 L 14.534 -5.066 L 11.654 -10.054 Z" fill="#e6c765" opacity="0.45" />
+  <path d="M -54 0 Q -18 -41.4 25.92 -18 Q 39.6 0 25.92 18 Q -18 41.4 -54 0 Z" fill="#41246e" />
+  <path d="M -40.32 0 Q -12.96 -30.96 20.16 -13.68 Q 30.24 0 20.16 13.68 Q -12.96 30.96 -40.32 0 Z" fill="#6b3fb0" />
+  <circle cx="1.8" cy="0" r="18.72" fill="#c9a3ff" opacity="0.9" />
+  <circle cx="1.8" cy="0" r="12.24" fill="#f3e6ff" />
+  <circle cx="1.8" cy="0" r="6.12" fill="#ffffff" />
+  <circle cx="1.8" cy="0" r="28.08" fill="none" stroke="#e6c765" stroke-width="1.62" opacity="0.8" />
+</svg>
