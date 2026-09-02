@@ -1,0 +1,37 @@
+# Twinstar: Mirror Comets
+
+> A free one-touch arcade game for Android and iOS. Two mirrored comets are steered
+> with a single input through asymmetric gates. No account, no in-app purchases.
+
+Bundle id: com.twinstar.app · Rated 4+ · Free, ad-supported
+
+## What an agent can get here
+
+- [Privacy policy (human)](https://rafmoshe2500.github.io/twinstar-privacy/privacy.html): the full policy.
+- [Privacy policy (machine)](https://rafmoshe2500.github.io/twinstar-privacy/privacy.json): the same
+  policy as structured JSON — data types, processors, purposes, identity linkage, tracking flags,
+  opt-out routes, retention and contact. This is the canonical source; the HTML is generated from
+  the same facts.
+- [Game overview](https://rafmoshe2500.github.io/twinstar-privacy/): features, modes and screenshots.
+
+The privacy page also registers WebMCP tools when the browsing agent supports
+`navigator.modelContext`, so the policy can be queried directly instead of scraped.
+Tools: `get_privacy_summary`, `list_data_collected`, `list_third_party_services`,
+`get_opt_out_instructions`, `get_contact_and_deletion`.
+
+## Key facts
+
+- We operate no game servers that store personal data. The core game runs fully offline.
+- All personal-data processing is done by named third parties: Google AdMob (ads),
+  Google Play Games (Android leaderboards + cloud save), Apple Game Center (iOS leaderboards),
+  Google Firebase (WebRTC handshake for online 1v1 only), and a TURN relay provider.
+- Exactly one permission prompt exists: App Tracking Transparency on iOS, shown at the first run
+  ending or first opt-in ad. Denying it does not reduce functionality.
+- Not collected: names, emails, phone numbers, GPS location, photos, contacts, microphone, camera.
+- Cloud save is Android-only in this version.
+- Online 1v1 is peer-to-peer by 5-character room code. The "VS Computer" option is a local AI
+  opponent and makes no network request.
+
+## Contact
+
+twinstarmirrorcommets@gmail.com

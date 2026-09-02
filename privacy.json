@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "document": "Twinstar: Mirror Comets — Privacy Policy",
+  "canonical_url": "https://rafmoshe2500.github.io/twinstar-privacy/privacy.html",
+  "app": {
+    "name": "Twinstar: Mirror Comets",
+    "bundle_id": "com.twinstar.app",
+    "platforms": ["Android", "iOS"],
+    "price": "free",
+    "in_app_purchases": false,
+    "account_required": false,
+    "age_rating": "4+"
+  },
+  "summary": "A free one-touch arcade game. The core game is playable fully offline. We operate no game servers that store personal data. All personal-data processing is done by named third parties (Google, Apple, a TURN relay provider) for ads, optional leaderboards, optional online 1v1, and Android-only cloud save.",
+  "data_collected": [
+    {
+      "id": "advertising_id",
+      "name": "Advertising ID / IDFA",
+      "processor": "Google AdMob",
+      "purposes": ["third_party_advertising", "analytics"],
+      "linked_to_identity": true,
+      "used_for_tracking": true,
+      "platforms": ["Android", "iOS"],
+      "notes": "On iOS, tracking use requires opt-in through Apple's App Tracking Transparency prompt. Ads still show if tracking is denied; they are simply not personalized."
+    },
+    {
+      "id": "play_games_profile",
+      "name": "Play Games player ID, gamer profile, submitted scores",
+      "processor": "Google Play Games Services",
+      "purposes": ["leaderboards"],
+      "linked_to_identity": true,
+      "used_for_tracking": false,
+      "platforms": ["Android"],
+      "notes": "Only if you choose to sign in. Optional; the game is fully playable without it. Only scores are submitted — local progress such as stars and skins is not uploaded."
+    },
+    {
+      "id": "game_center_profile",
+      "name": "Game Center player ID, display name, submitted scores",
+      "processor": "Apple Game Center",
+      "purposes": ["leaderboards"],
+      "linked_to_identity": true,
+      "used_for_tracking": false,
+      "platforms": ["iOS"],
+      "notes": "Only if you choose to sign in. Optional. Leaderboards only — iOS progress is not backed up to the cloud."
+    },
+    {
+      "id": "diagnostics",
+      "name": "Crash data, performance data, other diagnostics",
+      "processor": "Google Play Console (Android) / Apple App Store Connect (iOS)",
+      "purposes": ["app_functionality"],
+      "linked_to_identity": false,
+      "used_for_tracking": false,
+      "platforms": ["Android", "iOS"],
+      "notes": "Anonymous. Device model, OS version and stack traces. Cannot be used to identify you."
+    },
+    {
+      "id": "multiplayer_connection",
+      "name": "Public IP address and ICE candidate data",
+      "processor": "Google STUN, a TURN relay provider, Google Firebase (handshake only)",
+      "purposes": ["online_1v1_connection"],
+      "linked_to_identity": false,
+      "used_for_tracking": false,
+      "platforms": ["Android", "iOS"],
+      "notes": "Only when you start an online 1v1 match. Firebase holds an anonymous temporary session identifier and the connection details, deleted once the match connects. No score, purchase or account data is involved."
+    },
+    {
+      "id": "cloud_save",
+      "name": "Game progress (best scores, owned skins, star balance, settings)",
+      "processor": "Google Play Games Saved Games (Snapshots)",
+      "purposes": ["cloud_save"],
+      "linked_to_identity": true,
+      "used_for_tracking": false,
+      "platforms": ["Android"],
+      "notes": "Android only, and only if signed in to Google Play Games. Not available on iOS in this version; iOS progress is stored only on the device."
+    }
+  ],
+  "data_not_collected": [
+    "names", "email addresses", "phone numbers", "precise or GPS location",
+    "photos", "contacts", "microphone input", "camera input",
+    "Google account credentials", "Apple ID or Game Center credentials"
+  ],
+  "permission_prompts": [
+    {
+      "platform": "iOS",
+      "prompt": "App Tracking Transparency",
+      "when": "at the player's first run ending or first opt-in ad — never during first launch",
+      "required": false,
+      "effect_if_denied": "The app is fully functional. Ads still show but are not personalized."
+    }
+  ],
+  "third_party_services": [
+    { "name": "Google AdMob (with UMP consent SDK)", "role": "advertising and the consent dialog", "policy": "https://policies.google.com/privacy" },
+    { "name": "Google Play Games Services", "role": "Android leaderboards and cloud save", "policy": "https://policies.google.com/privacy" },
+    { "name": "Apple Game Center", "role": "iOS leaderboards", "policy": "https://www.apple.com/legal/privacy/" },
+    { "name": "Google Firebase", "role": "WebRTC handshake for online 1v1 only", "policy": "https://firebase.google.com/support/privacy" },
+    { "name": "TURN relay provider", "role": "relays online 1v1 traffic when a direct connection is not possible", "policy": null }
+  ],
+  "opt_out": [
+    { "topic": "Personalized ads (iOS)", "how": "Settings → Privacy & Security → Tracking" },
+    { "topic": "Personalized ads (Android)", "how": "Settings → Google → Ads — reset or delete the Advertising ID" },
+    { "topic": "Leaderboards", "how": "Do not sign in to Game Center or Google Play Games. The game is fully playable without it." },
+    { "topic": "Online multiplayer data", "how": "Do not start an online 1v1 match. The rest of the game is unaffected." }
+  ],
+  "retention_and_deletion": "We store no personal data ourselves. Data held by Google or Apple is governed by their policies and can be removed through your Google or Apple account. Deleting the app removes all local game progress on that device.",
+  "children": "The game is rated 4+ and is not directed at children under the age required by applicable law in your region. We do not knowingly collect personal information from children.",
+  "contact": { "email": "twinstarmirrorcommets@gmail.com" },
+  "last_updated": "2026-08-04"
+}

@@ -3,3 +3,7 @@ Allow: /
 
 # AdMob / IAB app-ads.txt crawler must reach the file at the DOMAIN ROOT, e.g.
 # https://rafmoshe2500.github.io/app-ads.txt  (needs a user-site repo, not a /project subpath)
+
+# Machine-readable entry points for agents:
+#   /twinstar-privacy/llms.txt     - site summary for LLMs
+#   /twinstar-privacy/privacy.json - the privacy policy as structured JSON
