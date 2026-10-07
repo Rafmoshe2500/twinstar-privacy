@@ -136,7 +136,7 @@
   "@type": "PrivacyPolicy",
   "name": "Twinstar: Mirror Comets — Privacy Policy",
   "url": "https://rafmoshe2500.github.io/twinstar-privacy/privacy.html",
-  "dateModified": "2026-08-04",
+  "dateModified": "2026-10-07",
   "inLanguage": "en",
   "isPartOf": { "@type": "WebSite", "name": "Twinstar: Mirror Comets", "url": "https://rafmoshe2500.github.io/twinstar-privacy/" },
   "about": {
@@ -159,7 +159,7 @@
       <span class="name">Twinstar: Mirror Comets</span>
     </header>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated · August 4, 2026</div>
+    <div class="updated">Last updated · October 7, 2026</div>
 
     <p>
       Twinstar: Mirror Comets is a mobile game published by Twinstar: Mirror Comets Games, available
@@ -228,8 +228,13 @@ optional, and the game is fully playable without it.
         Open Relay or ExpressTURN). When a
         direct connection is not possible, gameplay traffic is relayed through
         the TURN provider. We use Google Firebase only to coordinate the
-        initial handshake (an anonymous, temporary session identifier and the
-        connection details), which is deleted once the match connects. No
+        initial handshake: it holds the connection details, which are deleted
+        once the match connects, and an anonymous account created for that
+        online session. From version 2.1.37 the app deletes that anonymous
+        account when you leave the online session; if it cannot (for example,
+        the app was closed or offline), it retries at a later launch and gives
+        up after 30 days. Until then a small record of that account stays on
+        your device only. No
         score, purchase, or account data is involved in multiplayer, and no
         gameplay data is stored on our servers. This feature is used only when
         you start an online match.
@@ -316,9 +321,21 @@ optional, and the game is fully playable without it.
         <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.
       </li>
       <li>
+        <strong>Google Play In-App Review (Android)</strong> &mdash; may show
+        Google Play's own rating dialog. Your rating goes to Google Play; we
+        never see who rated. See
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.
+      </li>
+      <li>
+        <strong>Google Play In-App Updates (Android)</strong> &mdash; lets
+        Google Play offer an app update. See
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.
+      </li>
+      <li>
         <strong>Google Firebase</strong> &mdash; used only to coordinate the
-        connection handshake for online multiplayer (temporary anonymous
-        session and connection details, deleted on connect). See
+        connection handshake for online multiplayer (connection details,
+        deleted once the match connects, and an anonymous account for that
+        online session, deleted when you leave it). See
         <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's privacy and security information</a>.
       </li>
       <li>
@@ -356,8 +373,10 @@ optional, and the game is fully playable without it.
       ID, display name, and scores) is held by Apple under your Apple ID;
       because this version has no cloud save on iOS, there is no
       cloud-saved progress to delete beyond uninstalling the app. The
-      multiplayer connection handshake is deleted
-      automatically once a match connects and is not retained. To reset the
+      multiplayer connection details are deleted
+      automatically once a match connects, and from version 2.1.37 the
+      anonymous online account is deleted when you leave the online session
+      (retried at a later launch for up to 30 days if needed). To reset the
       Advertising ID (Android) or change your tracking choice (iOS), use
       your device settings as described above. For
       data held by Google (AdMob, Play Services, Firebase), please refer to

@@ -1,6 +1,6 @@
 # Twinstar: Mirror Comets — Privacy Policy
 
-Last updated: 2026-08-04
+Last updated: 2026-10-07
 
 Twinstar: Mirror Comets is published by Twinstar: Mirror Comets Games, available on Android and iOS (package/bundle id `com.twinstar.app` on both). The core game is offline by default and we operate no game servers that store your personal data. Optional features — online 1v1 multiplayer and cloud save — rely on Google and a network-relay provider, described below.
 
@@ -10,7 +10,7 @@ Twinstar: Mirror Comets is published by Twinstar: Mirror Comets Games, available
 - **Apple Game Center (iOS — leaderboards)** — if you choose to sign in, Apple processes your Game Center player ID, display name, and submitted scores, to provide leaderboards. Handled by Apple, not by us. Game Center is used for leaderboards only — on iOS your game progress is not backed up to the cloud (see "Game progress and responsibility" below). Signing in is optional and the game is fully playable without it.
 - **Advertising ID / IDFA** — used by Google AdMob to show ads and (with your consent) personalize them. This is the Advertising ID on Android (reset or opt out in your device's settings → Google → Ads) and the IDFA on iOS (see "App Tracking Transparency" below).
 - **Crash reports** — anonymous crash data collected by Google Play Console (Android) or Apple App Store Connect (iOS).
-- **Online multiplayer (IP address)** — during an online 1v1 match, your device connects directly to your opponent's via WebRTC. Your public IP address and network candidate info are exchanged with the other player and processed by connection-helper servers (Google STUN and a third-party TURN relay provider, such as Open Relay or ExpressTURN). Firebase coordinates only the initial handshake (a temporary anonymous session), which is deleted on connect. No score/purchase/account data is involved, and nothing is stored on our servers.
+- **Online multiplayer (IP address)** — during an online 1v1 match, your device connects directly to your opponent's via WebRTC. Your public IP address and network candidate info are exchanged with the other player and processed by connection-helper servers (Google STUN and a third-party TURN relay provider, such as Open Relay or ExpressTURN). Firebase coordinates only the initial handshake: it holds the room's connection details, which are deleted once the match connects, and an anonymous account created for that online session. From version 2.1.37 the app deletes that anonymous account when you leave the online session; if it cannot (for example, the app was closed or offline), it retries at a later launch and gives up after 30 days. Until then a small record of that account stays on your device only. No score/purchase/account data is involved, and nothing is stored on our servers.
 
 ## App Tracking Transparency (iOS)
 
@@ -31,7 +31,9 @@ Names, email addresses, phone numbers, precise (GPS) location, photos, contacts,
 - **Google AdMob** — https://policies.google.com/technologies/ads
 - **Google User Messaging Platform (UMP)** — consent for personalized ads where required (EU, UK, others).
 - **Google Play Services / Play Games Services (Android)** — crash reporting, leaderboards, cloud save. https://policies.google.com/privacy
-- **Google Firebase** — coordinates the online-multiplayer connection handshake only. https://firebase.google.com/support/privacy
+- **Google Play In-App Review (Android)** — may show Google Play's own rating dialog. Your rating goes to Google Play; we never see who rated. https://policies.google.com/privacy
+- **Google Play In-App Updates (Android)** — lets Google Play offer an app update. https://policies.google.com/privacy
+- **Google Firebase** — coordinates the online-multiplayer connection handshake only, with an anonymous account for that online session. https://firebase.google.com/support/privacy
 - **TURN relay (Open Relay / ExpressTURN)** — third-party STUN/TURN network relay for establishing/relaying the multiplayer connection.
 - **Apple (Game Center / App Store Connect)** — leaderboards and crash reporting on iOS. https://www.apple.com/legal/privacy/
 

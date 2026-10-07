@@ -61,7 +61,7 @@
       "linked_to_identity": false,
       "used_for_tracking": false,
       "platforms": ["Android", "iOS"],
-      "notes": "Only when you start an online 1v1 match. Firebase holds an anonymous temporary session identifier and the connection details, deleted once the match connects. No score, purchase or account data is involved."
+      "notes": "Only when you start or join an online 1v1 match. To coordinate the handshake, Firebase holds the room's connection details, which are deleted once the match connects, and an anonymous account created for that online session. From version 2.1.37 the app deletes that anonymous account when you leave the online session; if it cannot (for example, the app was closed or offline), it retries at a later launch and gives up after 30 days. Until then a small record of that account stays on your device only. No score, purchase or account data is involved."
     },
     {
       "id": "cloud_save",
@@ -91,8 +91,10 @@
   "third_party_services": [
     { "name": "Google AdMob (with UMP consent SDK)", "role": "advertising and the consent dialog", "policy": "https://policies.google.com/privacy" },
     { "name": "Google Play Games Services", "role": "Android leaderboards and cloud save", "policy": "https://policies.google.com/privacy" },
+    { "name": "Google Play In-App Review", "role": "Android only: may show Google Play's own rating dialog; your rating goes to Google Play, and we never see who rated", "policy": "https://policies.google.com/privacy" },
+    { "name": "Google Play In-App Updates", "role": "Android only: lets Google Play offer an app update", "policy": "https://policies.google.com/privacy" },
     { "name": "Apple Game Center", "role": "iOS leaderboards", "policy": "https://www.apple.com/legal/privacy/" },
-    { "name": "Google Firebase", "role": "WebRTC handshake for online 1v1 only", "policy": "https://firebase.google.com/support/privacy" },
+    { "name": "Google Firebase", "role": "WebRTC handshake for online 1v1 only, with an anonymous account for that online session", "policy": "https://firebase.google.com/support/privacy" },
     { "name": "TURN relay provider", "role": "relays online 1v1 traffic when a direct connection is not possible", "policy": null }
   ],
   "opt_out": [
@@ -101,8 +103,8 @@
     { "topic": "Leaderboards", "how": "Do not sign in to Game Center or Google Play Games. The game is fully playable without it." },
     { "topic": "Online multiplayer data", "how": "Do not start an online 1v1 match. The rest of the game is unaffected." }
   ],
-  "retention_and_deletion": "We store no personal data ourselves. Data held by Google or Apple is governed by their policies and can be removed through your Google or Apple account. Deleting the app removes all local game progress on that device.",
+  "retention_and_deletion": "We store no personal data ourselves. The connection details of an online match are deleted once it connects. From version 2.1.37 the app deletes the anonymous account it used for an online match when you leave the online session; if it cannot (for example, the app was closed or offline), it retries at a later launch and gives up after 30 days. Until then a small record of that account stays on your device only. Data held by Google or Apple is governed by their policies and can be removed through your Google or Apple account. Deleting the app removes all local game progress on that device.",
   "children": "The game is rated 4+ and is not directed at children under the age required by applicable law in your region. We do not knowingly collect personal information from children.",
   "contact": { "email": "twinstarmirrorcommets@gmail.com" },
-  "last_updated": "2026-08-04"
+  "last_updated": "2026-10-07"
 }
