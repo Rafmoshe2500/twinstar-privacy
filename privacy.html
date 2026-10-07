@@ -230,14 +230,15 @@ optional, and the game is fully playable without it.
         the TURN provider. We use Google Firebase only to coordinate the
         initial handshake: it holds the connection details, which are deleted
         once the match connects, and an anonymous account created for that
-        online session. From version 2.1.37 the app deletes that anonymous
-        account when you leave the online session; if it cannot (for example,
-        the app was closed or offline), it retries at a later launch and gives
-        up after 30 days. Until then a small record of that account stays on
-        your device only. No
-        score, purchase, or account data is involved in multiplayer, and no
-        gameplay data is stored on our servers. This feature is used only when
-        you start an online match.
+        online session. The account carries no name, email or other personal
+        details. From version 2.1.37 the app deletes it when you leave the
+        online session; if it cannot (for example, the app was closed or
+        offline), it retries at a later launch and gives up after 30 days, or
+        sooner if several such accounts are waiting, and an account it gives
+        up on can stay in our Firebase project. Until then a small record of
+        that account stays on your device only. No score or purchase data is
+        involved in multiplayer, and we run no game servers of our own. This
+        feature is used only when you start or join an online match.
       </li>
       <li>
         <strong>Cloud save (game progress) &mdash; Android only</strong> — if you are signed in to
@@ -335,7 +336,8 @@ optional, and the game is fully playable without it.
         <strong>Google Firebase</strong> &mdash; used only to coordinate the
         connection handshake for online multiplayer (connection details,
         deleted once the match connects, and an anonymous account for that
-        online session, deleted when you leave it). See
+        online session, which the app deletes when you leave it, as described
+        above). See
         <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase's privacy and security information</a>.
       </li>
       <li>
@@ -363,8 +365,9 @@ optional, and the game is fully playable without it.
 
     <h2 id="retention">Data retention and deletion</h2>
     <p>
-      Because we do not store user data on our own servers, there is
-      nothing for us to retain or delete on your behalf. To remove all
+      We run no servers of our own. Apart from the anonymous online account
+      described below, which the app deletes itself, there is nothing for us
+      to retain or delete on your behalf. To remove all
       game data from your device, uninstall the application. On Android,
       cloud-saved progress and leaderboard data are held by Google Play
       Games and can be deleted from your

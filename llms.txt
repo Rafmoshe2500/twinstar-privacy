@@ -24,8 +24,9 @@ Tools: `get_privacy_summary`, `list_data_collected`, `list_third_party_services`
 - We operate no game servers that store personal data. The core game runs fully offline.
 - All personal-data processing is done by named third parties: Google AdMob (ads),
   Google Play Games (Android leaderboards + cloud save), Apple Game Center (iOS leaderboards),
-  Google Firebase (WebRTC handshake for online 1v1 only; the anonymous account for an online
-  session is deleted when the session ends, from version 2.1.37), and a TURN relay provider.
+  Google Firebase (WebRTC handshake for online 1v1 only; from version 2.1.37 the app deletes the
+  anonymous account of an online session when it ends, retrying at a later launch for up to 30
+  days if that fails), and a TURN relay provider.
 - Exactly one permission prompt exists: App Tracking Transparency on iOS, shown at the first run
   ending or first opt-in ad. Denying it does not reduce functionality.
 - Not collected: names, emails, phone numbers, GPS location, photos, contacts, microphone, camera.
