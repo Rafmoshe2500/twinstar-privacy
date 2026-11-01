@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -108 216 216" width="216" height="216">
+  <defs>
+    <linearGradient id="kaleidos0" x1="0" y1="-10.8" x2="0" y2="-54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#7fe8ff"/><stop offset="1" stop-color="#2a9ad0"/></linearGradient>
+    <linearGradient id="kaleidos1" x1="0" y1="-10.8" x2="0" y2="-54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7fe8ff"/><stop offset="1" stop-color="#2a9ad0"/></linearGradient>
+    <linearGradient id="kaleidos2" x1="11.16" y1="-19.33" x2="19.44" y2="-33.671" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#e0902a"/></linearGradient>
+    <linearGradient id="kaleidos3" x1="9.353" y1="-5.4" x2="46.765" y2="-27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#d2a0ff"/><stop offset="1" stop-color="#7a4ad0"/></linearGradient>
+    <linearGradient id="kaleidos4" x1="9.353" y1="-5.4" x2="46.765" y2="-27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#d2a0ff"/><stop offset="1" stop-color="#7a4ad0"/></linearGradient>
+    <linearGradient id="kaleidos5" x1="22.32" y1="0" x2="38.88" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8affc8"/><stop offset="1" stop-color="#2ab088"/></linearGradient>
+    <linearGradient id="kaleidos6" x1="9.353" y1="5.4" x2="46.765" y2="27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#ff9ad8"/><stop offset="1" stop-color="#c83a98"/></linearGradient>
+    <linearGradient id="kaleidos7" x1="9.353" y1="5.4" x2="46.765" y2="27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff9ad8"/><stop offset="1" stop-color="#c83a98"/></linearGradient>
+    <linearGradient id="kaleidos8" x1="11.16" y1="19.33" x2="19.44" y2="33.671" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8ab4ff"/><stop offset="1" stop-color="#3a5ad0"/></linearGradient>
+    <linearGradient id="kaleidos9" x1="0" y1="10.8" x2="0" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#ffe08a"/><stop offset="1" stop-color="#e0902a"/></linearGradient>
+    <linearGradient id="kaleidos10" x1="0" y1="10.8" x2="0" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#e0902a"/></linearGradient>
+    <linearGradient id="kaleidos11" x1="-11.16" y1="19.33" x2="-19.44" y2="33.671" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#7fe8ff"/><stop offset="1" stop-color="#2a9ad0"/></linearGradient>
+    <linearGradient id="kaleidos12" x1="-9.353" y1="5.4" x2="-46.765" y2="27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#8affc8"/><stop offset="1" stop-color="#2ab088"/></linearGradient>
+    <linearGradient id="kaleidos13" x1="-9.353" y1="5.4" x2="-46.765" y2="27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8affc8"/><stop offset="1" stop-color="#2ab088"/></linearGradient>
+    <linearGradient id="kaleidos14" x1="-22.32" y1="0" x2="-38.88" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#d2a0ff"/><stop offset="1" stop-color="#7a4ad0"/></linearGradient>
+    <linearGradient id="kaleidos15" x1="-9.353" y1="-5.4" x2="-46.765" y2="-27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffffff"/><stop offset="0.4" stop-color="#8ab4ff"/><stop offset="1" stop-color="#3a5ad0"/></linearGradient>
+    <linearGradient id="kaleidos16" x1="-9.353" y1="-5.4" x2="-46.765" y2="-27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8ab4ff"/><stop offset="1" stop-color="#3a5ad0"/></linearGradient>
+    <linearGradient id="kaleidos17" x1="-11.16" y1="-19.33" x2="-19.44" y2="-33.671" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff9ad8"/><stop offset="1" stop-color="#c83a98"/></linearGradient>
+    <radialGradient id="kaleidos18" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#bfeaff" stop-opacity="0.45"/><stop offset="0.32" stop-color="#bfeaff" stop-opacity="0.351"/><stop offset="0.58" stop-color="#bfeaff" stop-opacity="0.18"/><stop offset="0.8" stop-color="#bfeaff" stop-opacity="0.059"/><stop offset="1" stop-color="#bfeaff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="kaleidos19" cx="0.5" cy="0.5" r="0.6"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#9fe8ff"/></radialGradient>
+  </defs>
+  <circle cx="0" cy="0" r="75.6" fill="url(#kaleidos18)" />
+  <path d="M 0,-10.8 L -12.007,-26.968 L 0,-54 L 12.007,-26.968 Z M 9.353,-5.4 L 17.351,-23.882 L 46.765,-27 L 29.358,-3.086 Z M 9.353,5.4 L 29.358,3.086 L 46.765,27 L 17.351,23.882 Z M 0,10.8 L 12.007,26.968 L 0,54 L -12.007,26.968 Z M -9.353,5.4 L -17.351,23.882 L -46.765,27 L -29.358,3.086 Z M -9.353,-5.4 L -29.358,-3.086 L -46.765,-27 L -17.351,-23.882 Z M 7.999,-20.838 L 19.44,-33.671 L 14.046,-17.346 Z M 22.045,-3.492 L 38.88,0 L 22.045,3.492 Z M 14.046,17.346 L 19.44,33.671 L 7.999,20.838 Z M -7.999,20.838 L -19.44,33.671 L -14.046,17.346 Z M -22.045,3.492 L -38.88,0 L -22.045,-3.492 Z M -14.046,-17.346 L -19.44,-33.671 L -7.999,-20.838 Z" fill="#1b1636" stroke="#1b1636" stroke-width="5.2" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M 7.999,-20.838 L 19.44,-33.671 L 14.046,-17.346 Z" fill="url(#kaleidos2)" />
+  <path d="M 22.045,-3.492 L 38.88,0 L 22.045,3.492 Z" fill="url(#kaleidos5)" />
+  <path d="M 14.046,17.346 L 19.44,33.671 L 7.999,20.838 Z" fill="url(#kaleidos8)" />
+  <path d="M -7.999,20.838 L -19.44,33.671 L -14.046,17.346 Z" fill="url(#kaleidos11)" />
+  <path d="M -22.045,3.492 L -38.88,0 L -22.045,-3.492 Z" fill="url(#kaleidos14)" />
+  <path d="M -14.046,-17.346 L -19.44,-33.671 L -7.999,-20.838 Z" fill="url(#kaleidos17)" />
+  <path d="M 0,-10.8 L -12.007,-26.968 L 0,-54 Z" fill="url(#kaleidos0)" />
+  <path d="M 0,-10.8 L 0,-54 L 12.007,-26.968 Z" fill="url(#kaleidos1)" />
+  <path d="M 0,-10.8 L 0,-54 L 12.007,-26.968 Z" fill="#1b1636" opacity="0.18" />
+  <path d="M 9.353,-5.4 L 17.351,-23.882 L 46.765,-27 Z" fill="url(#kaleidos3)" />
+  <path d="M 9.353,-5.4 L 46.765,-27 L 29.358,-3.086 Z" fill="url(#kaleidos4)" />
+  <path d="M 9.353,-5.4 L 46.765,-27 L 29.358,-3.086 Z" fill="#1b1636" opacity="0.18" />
+  <path d="M 9.353,5.4 L 29.358,3.086 L 46.765,27 Z" fill="url(#kaleidos6)" />
+  <path d="M 9.353,5.4 L 46.765,27 L 17.351,23.882 Z" fill="url(#kaleidos7)" />
+  <path d="M 9.353,5.4 L 46.765,27 L 17.351,23.882 Z" fill="#1b1636" opacity="0.18" />
+  <path d="M 0,10.8 L 12.007,26.968 L 0,54 Z" fill="url(#kaleidos9)" />
+  <path d="M 0,10.8 L 0,54 L -12.007,26.968 Z" fill="url(#kaleidos10)" />
+  <path d="M 0,10.8 L 0,54 L -12.007,26.968 Z" fill="#1b1636" opacity="0.18" />
+  <path d="M -9.353,5.4 L -17.351,23.882 L -46.765,27 Z" fill="url(#kaleidos12)" />
+  <path d="M -9.353,5.4 L -46.765,27 L -29.358,3.086 Z" fill="url(#kaleidos13)" />
+  <path d="M -9.353,5.4 L -46.765,27 L -29.358,3.086 Z" fill="#1b1636" opacity="0.18" />
+  <path d="M -9.353,-5.4 L -29.358,-3.086 L -46.765,-27 Z" fill="url(#kaleidos15)" />
+  <path d="M -9.353,-5.4 L -46.765,-27 L -17.351,-23.882 Z" fill="url(#kaleidos16)" />
+  <path d="M -9.353,-5.4 L -46.765,-27 L -17.351,-23.882 Z" fill="#1b1636" opacity="0.18" />
+  <path d="M 0,-10.8 L -12.007,-26.968 L 0,-54 L 12.007,-26.968 Z" fill="none" stroke="#ffffff" stroke-width="1.08" opacity="0.75" stroke-linejoin="round" />
+  <path d="M 9.353,-5.4 L 17.351,-23.882 L 46.765,-27 L 29.358,-3.086 Z" fill="none" stroke="#ffffff" stroke-width="1.08" opacity="0.75" stroke-linejoin="round" />
+  <path d="M 9.353,5.4 L 29.358,3.086 L 46.765,27 L 17.351,23.882 Z" fill="none" stroke="#ffffff" stroke-width="1.08" opacity="0.75" stroke-linejoin="round" />
+  <path d="M 0,10.8 L 12.007,26.968 L 0,54 L -12.007,26.968 Z" fill="none" stroke="#ffffff" stroke-width="1.08" opacity="0.75" stroke-linejoin="round" />
+  <path d="M -9.353,5.4 L -17.351,23.882 L -46.765,27 L -29.358,3.086 Z" fill="none" stroke="#ffffff" stroke-width="1.08" opacity="0.75" stroke-linejoin="round" />
+  <path d="M -9.353,-5.4 L -29.358,-3.086 L -46.765,-27 L -17.351,-23.882 Z" fill="none" stroke="#ffffff" stroke-width="1.08" opacity="0.75" stroke-linejoin="round" />
+  <path d="M -3.106,-22.103 L -4.591,-43.679" fill="none" stroke="#ffffff" stroke-width="1.26" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+  <path d="M 17.588,-13.742 L 35.532,-25.816" fill="none" stroke="#ffffff" stroke-width="1.26" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+  <path d="M 20.695,8.361 L 40.123,17.864" fill="none" stroke="#ffffff" stroke-width="1.26" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+  <path d="M 3.106,22.103 L 4.591,43.679" fill="none" stroke="#ffffff" stroke-width="1.26" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+  <path d="M -17.588,13.742 L -35.532,25.816" fill="none" stroke="#ffffff" stroke-width="1.26" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+  <path d="M -20.695,-8.361 L -40.123,-17.864" fill="none" stroke="#ffffff" stroke-width="1.26" stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+  <path d="M 0,-12.24 L 10.6,-6.12 L 10.6,6.12 L 0,12.24 L -10.6,6.12 L -10.6,-6.12 Z" fill="#ffffff" stroke="#1b1636" stroke-width="1.6" stroke-linejoin="round" />
+  <path d="M 0,-7.92 L 6.859,-3.96 L 6.859,3.96 L 0,7.92 L -6.859,3.96 L -6.859,-3.96 Z" fill="url(#kaleidos19)" />
+  <path d="M 7.2,0 Q 1.08,-1.08 0,-7.2 Q -1.08,-1.08 -7.2,0 Q -1.08,1.08 0,7.2 Q 1.08,1.08 7.2,0 Z" fill="#ffffff" />
+</svg>

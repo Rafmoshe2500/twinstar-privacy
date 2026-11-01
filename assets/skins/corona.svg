@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-108 -108 216 216" width="216" height="216">
+  <defs>
+    <radialGradient id="corona0" cx="0" cy="0" r="59.4" gradientUnits="userSpaceOnUse"><stop offset="0.35" stop-color="#ffffff"/><stop offset="0.55" stop-color="#ffe8a0" stop-opacity="0.95"/><stop offset="0.8" stop-color="#ffb04a" stop-opacity="0.6"/><stop offset="1" stop-color="#ff8a3a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="corona1" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ffd27a" stop-opacity="0.55"/><stop offset="0.32" stop-color="#ffd27a" stop-opacity="0.429"/><stop offset="0.58" stop-color="#ffd27a" stop-opacity="0.22"/><stop offset="0.8" stop-color="#ffd27a" stop-opacity="0.072"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="corona2" cx="0" cy="0" r="23.04" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#06030f"/><stop offset="0.8" stop-color="#0e0820"/><stop offset="1" stop-color="#2a1850"/></radialGradient>
+  </defs>
+  <circle cx="0" cy="0" r="79.2" fill="url(#corona1)" />
+  <path d="M 20.163,4.841 Q 30.129,9.79 36.392,17.358 Q 27.155,16.316 17.68,10.835 Z M 10.835,17.68 Q 14.382,28.227 13.459,38.007 Q 7.664,30.739 4.841,20.163 Z M -4.841,20.163 Q -9.79,30.129 -17.358,36.392 Q -16.316,27.155 -10.835,17.68 Z M -17.68,10.835 Q -28.227,14.382 -38.007,13.459 Q -30.739,7.664 -20.163,4.841 Z M -20.163,-4.841 Q -30.129,-9.79 -36.392,-17.358 Q -27.155,-16.316 -17.68,-10.835 Z M -10.835,-17.68 Q -14.382,-28.227 -13.459,-38.007 Q -7.664,-30.739 -4.841,-20.163 Z M 4.841,-20.163 Q 9.79,-30.129 17.358,-36.392 Q 16.316,-27.155 10.835,-17.68 Z M 17.68,-10.835 Q 28.227,-14.382 38.007,-13.459 Q 30.739,-7.664 20.163,-4.841 Z" fill="url(#corona0)" opacity="0.8" />
+  <path d="M 20.355,-3.957 Q 40.493,-3.899 58.24,3.052 Q 40.122,6.714 20.355,3.957 Z M 17.191,11.595 Q 31.39,25.876 39.024,43.34 Q 23.623,33.118 11.595,17.191 Z M 3.957,20.355 Q 3.899,40.493 -3.052,58.24 Q -6.714,40.122 -3.957,20.355 Z M -11.595,17.191 Q -25.876,31.39 -43.34,39.024 Q -33.118,23.623 -17.191,11.595 Z M -20.355,3.957 Q -40.493,3.899 -58.24,-3.052 Q -40.122,-6.714 -20.355,-3.957 Z M -17.191,-11.595 Q -31.39,-25.876 -39.024,-43.34 Q -23.623,-33.118 -11.595,-17.191 Z M -3.957,-20.355 Q -3.899,-40.493 3.052,-58.24 Q 6.714,-40.122 3.957,-20.355 Z M 11.595,-17.191 Q 25.876,-31.39 43.34,-39.024 Q 33.118,-23.623 17.191,-11.595 Z" fill="url(#corona0)" />
+  <circle cx="0" cy="0" r="26.64" fill="none" stroke="#ffb85a" stroke-width="7.2" opacity="0.45" />
+  <circle cx="0" cy="0" r="25.2" fill="none" stroke="#ffffff" stroke-width="3.24" />
+  <circle cx="0" cy="0" r="23.58" fill="#1b1636" />
+  <circle cx="0" cy="0" r="23.04" fill="url(#corona2)" />
+  <circle cx="0" cy="0" r="21.427" fill="none" stroke="#7a6ad0" stroke-width="1.8" opacity="0.35" />
+</svg>

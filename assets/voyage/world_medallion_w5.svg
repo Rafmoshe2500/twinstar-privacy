@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 -80 160 160" width="160" height="160">
+<defs><radialGradient id="g1" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#a8c3df" stop-opacity="0.55"/><stop offset="0.45" stop-color="#a8c3df" stop-opacity="0.19"/><stop offset="1" stop-color="#a8c3df" stop-opacity="0"/></radialGradient><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15304a" stop-opacity="1"/><stop offset="1" stop-color="#05060d" stop-opacity="1"/></linearGradient></defs>
+<circle cx="0" cy="0" r="78.4" fill="url(#g1)"/>
+<path d="M -56 0 a 56 56 0 1 0 112 0 a 56 56 0 1 0 -112 0 Z" fill="none" stroke="#1b1636" stroke-width="6.42" stroke-opacity="0.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M -56 0 a 56 56 0 1 0 112 0 a 56 56 0 1 0 -112 0 Z" transform="translate(0.74 1.19)" fill="none" stroke="#8b82b6" stroke-width="3.92" stroke-linecap="round" stroke-linejoin="round"/><path d="M -56 0 a 56 56 0 1 0 112 0 a 56 56 0 1 0 -112 0 Z" fill="url(#g2)" fill-opacity="1" stroke="#e4eaf8" stroke-width="3.92" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="0" cy="0" r="48.16" fill="none" stroke="#a8c3df" stroke-width="1.68" stroke-opacity="0.5"/>
+<path d="M-33.23 -25.76 L-5.23 -33.23 L-10.83 -3.36 Z" fill="#a8c3df" fill-opacity="0.85" stroke="#1b1636" stroke-width="1.49" stroke-opacity="0.9" stroke-linejoin="round"/>
+<path d="M-3.73 -30.24 L28 -20.91 L11.2 5.23 L-9.33 -0.37 Z" fill="#e4eaf8" fill-opacity="0.55" stroke="#1b1636" stroke-width="1.49" stroke-opacity="0.9" stroke-linejoin="round"/>
+<path d="M29.49 -23.89 L35.09 5.97 L12.69 2.24 Z" fill="#a8c3df" fill-opacity="0.5" stroke="#1b1636" stroke-width="1.49" stroke-opacity="0.9" stroke-linejoin="round"/>
+<path d="M-33.23 -22.77 L-10.83 -0.37 L-18.29 29.49 L-35.09 12.69 Z" fill="#e4eaf8" fill-opacity="0.4" stroke="#1b1636" stroke-width="1.49" stroke-opacity="0.9" stroke-linejoin="round"/>
+<path d="M-9.33 -3.36 L11.2 2.24 L5.6 32.11 L-16.8 26.51 Z" fill="#a8c3df" fill-opacity="0.7" stroke="#1b1636" stroke-width="1.49" stroke-opacity="0.9" stroke-linejoin="round"/>
+<path d="M12.69 5.23 L35.09 8.96 L23.89 29.49 L7.09 35.09 Z" fill="#e4eaf8" fill-opacity="0.3" stroke="#1b1636" stroke-width="1.49" stroke-opacity="0.9" stroke-linejoin="round"/>
+<path d="M-3.73 -31.73 L-9.33 -1.87 L11.2 3.73 L22.4 28" fill="none" stroke="#ffffff" stroke-width="1.12" stroke-opacity="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

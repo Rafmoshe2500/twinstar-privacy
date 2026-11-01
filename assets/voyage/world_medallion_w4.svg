@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 -80 160 160" width="160" height="160">
+<defs><radialGradient id="g1" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#6b5cff" stop-opacity="0.55"/><stop offset="0.45" stop-color="#6b5cff" stop-opacity="0.19"/><stop offset="1" stop-color="#6b5cff" stop-opacity="0"/></radialGradient><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141447" stop-opacity="1"/><stop offset="1" stop-color="#05060d" stop-opacity="1"/></linearGradient></defs>
+<circle cx="0" cy="0" r="78.4" fill="url(#g1)"/>
+<path d="M -56 0 a 56 56 0 1 0 112 0 a 56 56 0 1 0 -112 0 Z" fill="none" stroke="#1b1636" stroke-width="6.42" stroke-opacity="0.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M -56 0 a 56 56 0 1 0 112 0 a 56 56 0 1 0 -112 0 Z" transform="translate(0.74 1.19)" fill="none" stroke="#8b82b6" stroke-width="3.92" stroke-linecap="round" stroke-linejoin="round"/><path d="M -56 0 a 56 56 0 1 0 112 0 a 56 56 0 1 0 -112 0 Z" fill="url(#g2)" fill-opacity="1" stroke="#b8b0ff" stroke-width="3.92" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="0" cy="0" r="48.16" fill="none" stroke="#6b5cff" stroke-width="1.68" stroke-opacity="0.5"/>
+<ellipse cx="0" cy="18.67" rx="11.2" ry="3.36" fill="none" stroke="#b8b0ff" stroke-width="1.68" stroke-opacity="0.85"/>
+<ellipse cx="0" cy="18.67" rx="19.6" ry="5.88" fill="none" stroke="#b8b0ff" stroke-width="1.68" stroke-opacity="0.6"/>
+<ellipse cx="0" cy="18.67" rx="28" ry="8.4" fill="none" stroke="#b8b0ff" stroke-width="1.68" stroke-opacity="0.35"/>
+<path d="M -20.53 -28 L -23.33 -16.8" fill="none" stroke="#b8b0ff" stroke-width="2.43" stroke-opacity="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="-23.33" cy="-16.8" r="2.24" fill="#b8b0ff" fill-opacity="1"/>
+<path d="M -3.73 -37.33 L -6.53 -26.13" fill="none" stroke="#b8b0ff" stroke-width="2.43" stroke-opacity="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="-6.53" cy="-26.13" r="2.24" fill="#b8b0ff" fill-opacity="1"/>
+<path d="M 14.93 -24.27 L 12.13 -13.07" fill="none" stroke="#b8b0ff" stroke-width="2.43" stroke-opacity="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="12.13" cy="-13.07" r="2.24" fill="#b8b0ff" fill-opacity="1"/>
+<path d="M 28 -35.47 L 25.2 -24.27" fill="none" stroke="#b8b0ff" stroke-width="2.43" stroke-opacity="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="25.2" cy="-24.27" r="2.24" fill="#b8b0ff" fill-opacity="1"/>
+<path d="M 3.73 -11.2 L 0.93 0" fill="none" stroke="#b8b0ff" stroke-width="2.43" stroke-opacity="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="0.93" cy="0" r="2.24" fill="#b8b0ff" fill-opacity="1"/>
+</svg>
