@@ -130,9 +130,9 @@
   .stop li b{color:var(--ink);font-weight:700}
 
   /* ---------- voyage ---------- */
-  .voyage-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-  @media(max-width:900px){.voyage-grid{grid-template-columns:1fr}}
-  .facts{display:grid;gap:14px;min-width:0}
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  @media(max-width:760px){.facts{grid-template-columns:1fr}}
+  .maps-wrap{margin-top:36px;min-width:0}
   .fact{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:18px;border-radius:18px;background:var(--panel);border:1px solid var(--panel-line)}
   .fact img{width:52px;height:52px}
   .fact h3{font-family:var(--display);font-weight:600;font-size:19px;margin-bottom:4px}
@@ -140,7 +140,7 @@
   .moons{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
   .moons span{font-size:12.5px;color:var(--ink);background:rgba(120,225,245,.08);border:1px solid var(--line-cool);border-radius:99px;padding:3px 10px}
   .maps{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  .maps figure{flex:none;width:200px;scroll-snap-align:start}
+  .maps figure{flex:1 0 160px;max-width:220px;scroll-snap-align:start}
   .maps img{width:100%;border-radius:18px;border:1px solid var(--panel-line);display:block}
   .maps figcaption{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px;text-align:center}
   .maps::-webkit-scrollbar{height:6px}.maps::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px}
@@ -417,13 +417,12 @@
 
   <!-- VOYAGE -->
   <section class="sec wrap" id="voyage">
-    <div class="voyage-grid">
-      <div class="facts">
-        <div class="sec-head reveal" style="margin-bottom:10px">
-          <div class="kicker cap">Voyage</div>
-          <h2>65 levels, <em>every one proven</em></h2>
-          <p>Five worlds of 12 levels each, plus one secret level per world. Every level is fixed and hand-made, and every one is checked by a solver before it ships: it can be finished, and all three moons can be won in a single run.</p>
-        </div>
+    <div class="sec-head reveal">
+      <div class="kicker cap">Voyage</div>
+      <h2>65 levels, <em>every one proven</em></h2>
+      <p>Five worlds of 12 levels each, plus one secret level per world. Every level is fixed and hand-made, and every one is checked by a solver before it ships: it can be finished, and all three moons can be won in a single run.</p>
+    </div>
+    <div class="facts">
         <div class="fact reveal">
           <img src="assets/voyage/moon_rating_3.svg" alt="" />
           <div><h3>Three moons a level</h3><p>Moons are never taken away once won.</p>
@@ -441,17 +440,17 @@
           <img src="assets/voyage/map_node_secret_open.svg" alt="" />
           <div><h3>Secrets and rewards</h3><p>Clear a world's level 12 while holding 24 of its 36 moons and its secret level opens. First clears pay <b class="num">5,240</b> stars across Voyage, and nine skins can only be earned here.</p></div>
         </div>
-      </div>
-      <div class="reveal">
-        <div class="maps" aria-label="The five world maps">
+    </div>
+    <div class="maps-wrap reveal">
+      <div class="maps" aria-label="The five world maps">
           <figure><img src="assets/shots/map-w1.png" alt="The Still Water map, all 36 moons collected" loading="lazy" /><figcaption>Still Water</figcaption></figure>
           <figure><img src="assets/shots/map-w2.png" alt="The Eclipse map part way through" loading="lazy" /><figcaption>Eclipse</figcaption></figure>
+          <figure><img src="assets/shots/map-w3.png" alt="The Tides map" loading="lazy" /><figcaption>Tides</figcaption></figure>
           <figure><img src="assets/shots/map-w4.png" alt="The Pulse map, still locked" loading="lazy" /><figcaption>Pulse</figcaption></figure>
           <figure><img src="assets/shots/map-w5.png" alt="The Shattered Mirror map, still locked" loading="lazy" /><figcaption>Shattered Mirror</figcaption></figure>
           <figure><img src="assets/shots/level-clear.png" alt="A level-clear card with two of three moons" loading="lazy" /><figcaption>Level clear</figcaption></figure>
         </div>
         <p class="foot-note">New players begin in Voyage. Endless TWINS and SOLO open once World 1 is cleared; 2 Players, VS Computer, Online and challenges are open from the start.</p>
-      </div>
     </div>
   </section>
 
