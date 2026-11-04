@@ -30,7 +30,11 @@ Tools: `get_privacy_summary`, `list_data_collected`, `list_third_party_services`
 - Exactly one permission prompt exists: App Tracking Transparency on iOS, shown at the first run
   ending or first opt-in ad. Denying it does not reduce functionality.
 - Not collected: names, emails, phone numbers, GPS location, photos, contacts, microphone, camera.
+  A Play Games or Game Center display name is handled only by Google or Apple, and in an online
+  match it goes directly to the opponent; it never reaches the developer.
 - Cloud save is Android-only in this version.
+- From version 2.4.9, online 1v1 shows each player the other's display name and skin, sent over the
+  encrypted peer-to-peer connection, and Android leaderboards show the skin of a best score.
 - Online 1v1 is peer-to-peer by 5-character room code. The "VS Computer" option is a local AI
   opponent and makes no network request.
 

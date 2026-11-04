@@ -11,7 +11,7 @@
     "account_required": false,
     "age_rating": "4+"
   },
-  "summary": "A free one-touch arcade game. The core game is playable fully offline. We operate no game servers that store personal data. All personal-data processing is done by named third parties (Google, Apple, a TURN relay provider) for ads, optional leaderboards, optional online 1v1, and Android-only cloud save.",
+  "summary": "A free one-touch arcade game. The core game is playable fully offline. We operate no game servers that store personal data. All personal-data processing is done by named third parties (Google, Apple, a TURN relay provider) for ads, optional leaderboards, optional online 1v1, and Android-only cloud save. In an online 1v1, your display name and selected skin go directly to your opponent's device.",
   "data_collected": [
     {
       "id": "advertising_id",
@@ -25,13 +25,13 @@
     },
     {
       "id": "play_games_profile",
-      "name": "Play Games player ID, gamer profile, submitted scores",
+      "name": "Play Games player ID, gamer profile, submitted scores, the skin of a best score",
       "processor": "Google Play Games Services",
       "purposes": ["leaderboards"],
       "linked_to_identity": true,
       "used_for_tracking": false,
       "platforms": ["Android"],
-      "notes": "Only if you choose to sign in. Optional; the game is fully playable without it. Only scores are submitted — local progress such as stars and skins is not uploaded."
+      "notes": "Only if you choose to sign in. Optional; the game is fully playable without it. From version 2.4.9 a new best score is submitted with the id of the skin it was set with, and other players see that skin next to your score on the leaderboard. Other local progress, such as stars and owned skins, is not sent to leaderboards."
     },
     {
       "id": "game_center_profile",
@@ -41,7 +41,7 @@
       "linked_to_identity": true,
       "used_for_tracking": false,
       "platforms": ["iOS"],
-      "notes": "Only if you choose to sign in. Optional. Leaderboards only — iOS progress is not backed up to the cloud."
+      "notes": "Only if you choose to sign in. Optional. Leaderboards only — iOS progress is not backed up to the cloud, and the skin of a best score is not sent to Game Center."
     },
     {
       "id": "diagnostics",
@@ -74,8 +74,19 @@
       "notes": "Only when you start or join an online 1v1 match. Firebase Authentication creates a random account ID for that online session so the handshake can tell the two players apart. It carries no name, email, Play Games or Game Center account, or advertising ID, and it is never used for tracking; because it is an account ID, it is declared as linked to you. From version 2.1.37 the app deletes it when you leave the online session; if it cannot (for example, the app was closed or offline), it retries at a later launch and gives up after 30 days, or sooner if several such accounts are waiting, and an account it gives up on can stay in our Firebase project. Until then a small record of that account stays on your device only."
     },
     {
+      "id": "online_opponent_profile",
+      "name": "Display name and selected skin, shown to your online opponent",
+      "processor": "None: sent directly to your opponent's device",
+      "purposes": ["online_1v1_display"],
+      "linked_to_identity": false,
+      "used_for_tracking": false,
+      "stored_by_us": false,
+      "platforms": ["Android", "iOS"],
+      "notes": "From version 2.4.9, once when an online 1v1 connects. Your Play Games or Game Center display name, if you are signed in, and the id of your selected skin go over the encrypted connection between the two devices, so your opponent sees them for that online session. A TURN relay, if used, cannot read them. They never reach us and are not sent to Firebase. If you are not signed in, your opponent sees PLAYER; your skin is still sent. No store privacy label declares this, because only you and your opponent can read it and it is not stored."
+    },
+    {
       "id": "cloud_save",
-      "name": "Game progress (best scores, owned skins, star balance, settings)",
+      "name": "Game progress (best scores and the skin each was set with, owned skins, star balance, settings)",
       "processor": "Google Play Games Saved Games (Snapshots)",
       "purposes": ["cloud_save"],
       "linked_to_identity": true,
@@ -85,7 +96,7 @@
     }
   ],
   "data_not_collected": [
-    "names", "email addresses", "phone numbers", "precise or GPS location",
+    "names (your Play Games or Game Center display name is handled only as described in play_games_profile, game_center_profile and online_opponent_profile)", "email addresses", "phone numbers", "precise or GPS location",
     "photos", "contacts", "microphone input", "camera input",
     "Google account credentials", "Apple ID or Game Center credentials"
   ],
@@ -111,10 +122,11 @@
     { "topic": "Personalized ads (iOS)", "how": "Settings → Privacy & Security → Tracking" },
     { "topic": "Personalized ads (Android)", "how": "Settings → Google → Ads — reset or delete the Advertising ID" },
     { "topic": "Leaderboards", "how": "Do not sign in to Game Center or Google Play Games. The game is fully playable without it." },
+    { "topic": "Your name in online matches", "how": "Stay signed out of Google Play Games or Game Center, and your opponent sees PLAYER, or do not play online. There is no in-game setting for this." },
     { "topic": "Online multiplayer data", "how": "Do not start an online 1v1 match. The rest of the game is unaffected." }
   ],
-  "retention_and_deletion": "We run no servers of our own. The connection details of an online match are deleted once it connects. The anonymous account an online match uses is held in our Firebase project (Google): from version 2.1.37 the app deletes it when you leave the online session; if it cannot (for example, the app was closed or offline), it retries at a later launch and gives up after 30 days, or sooner if several such accounts are waiting, and an account it gives up on can stay in our Firebase project. Until then a small record of that account stays on your device only. Data held by Google or Apple is governed by their policies and can be removed through your Google or Apple account. Deleting the app removes all local game progress on that device.",
+  "retention_and_deletion": "We run no servers of our own. The connection details of an online match are deleted once it connects. The anonymous account an online match uses is held in our Firebase project (Google): from version 2.1.37 the app deletes it when you leave the online session; if it cannot (for example, the app was closed or offline), it retries at a later launch and gives up after 30 days, or sooner if several such accounts are waiting, and an account it gives up on can stay in our Firebase project. Until then a small record of that account stays on your device only. Your name and skin in an online match are not stored by the game after that online session and never reach us. Data held by Google or Apple is governed by their policies and can be removed through your Google or Apple account. Deleting the app removes all local game progress on that device.",
   "children": "The game is rated 4+ and is not directed at children under the age required by applicable law in your region. We do not knowingly collect personal information from children.",
   "contact": { "email": "twinstarmirrorcommets@gmail.com" },
-  "last_updated": "2026-10-07"
+  "last_updated": "2026-11-04"
 }

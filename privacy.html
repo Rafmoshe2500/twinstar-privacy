@@ -136,7 +136,7 @@
   "@type": "PrivacyPolicy",
   "name": "Twinstar: Mirror Comets — Privacy Policy",
   "url": "https://rafmoshe2500.github.io/twinstar-privacy/privacy.html",
-  "dateModified": "2026-10-07",
+  "dateModified": "2026-11-04",
   "inLanguage": "en",
   "isPartOf": { "@type": "WebSite", "name": "Twinstar: Mirror Comets", "url": "https://rafmoshe2500.github.io/twinstar-privacy/" },
   "about": {
@@ -159,7 +159,7 @@
       <span class="name">Twinstar: Mirror Comets</span>
     </header>
     <h1>Privacy Policy</h1>
-    <div class="updated">Last updated · October 7, 2026</div>
+    <div class="updated">Last updated · November 4, 2026</div>
 
     <p>
       Twinstar: Mirror Comets is a mobile game published by Twinstar: Mirror Comets Games, available
@@ -182,9 +182,11 @@
 On Android, if you choose to sign in to Google Play Games, Google processes your Play Games
 player ID, your gamer profile (such as your display name), and the game scores you
 submit, in order to provide global leaderboards. This data is handled by Google, not
-by us — we never receive your Google account email or password. Only your score is
-submitted; your local game progress (stars, skins) is not uploaded. Signing in is
-optional, and the game is fully playable without it.
+by us — we never receive your Google account email or password. From version 2.4.9 a
+new best score is submitted with the id of the skin you set it with, and other players
+see that skin next to your score on the leaderboard. Other local game progress (stars,
+owned skins) is not sent to leaderboards. Signing in is optional, and the game is fully
+playable without it.
         </li>
       <li>
         <strong>Apple Game Center (iOS &mdash; leaderboards)</strong>
@@ -193,8 +195,9 @@ optional, and the game is fully playable without it.
         submit, in order to provide leaderboards. This data is handled by
         Apple, not by us. Game Center is used for leaderboards only —
         on iOS your in-game progress is <strong>not</strong> backed up to
-        the cloud (see "Game progress and responsibility" below). Signing
-        in is optional, and the game is fully playable without it.
+        the cloud (see "Game progress and responsibility" below), and the
+        skin of a best score is not sent to Game Center. Signing in is
+        optional, and the game is fully playable without it.
       </li>
       <li>
         <strong>Advertising ID / IDFA</strong> — a resettable, device-level
@@ -240,10 +243,23 @@ optional, and the game is fully playable without it.
         involved in multiplayer, and we run no game servers of our own. This
         feature is used only when you start or join an online match.
       </li>
+      <li id="online-name-and-skin">
+        <strong>Your name and skin in online matches</strong> &mdash; from
+        version 2.4.9, when an online 1&nbsp;v&nbsp;1 connects, your device
+        sends your opponent's device your Google Play Games (Android) or Game
+        Center (iOS) display name, if you are signed in, and the id of your
+        selected skin. Your opponent sees them during that online session.
+        They travel over the encrypted connection between the two devices, so
+        a TURN relay, if used, cannot read them. They never reach us, they are
+        not sent to Firebase, and we do not store them. If you are not signed
+        in, your opponent sees "PLAYER"; your skin is still sent. There is no
+        in-game setting for this: to keep your name from being shown, stay
+        signed out of Google Play Games or Game Center, or do not play online.
+      </li>
       <li>
         <strong>Cloud save (game progress) &mdash; Android only</strong> — if you are signed in to
-        Google Play Games, your in-game progress (best scores, unlocked and
-        owned skins, star balance, and settings) is saved to Google Play Games
+        Google Play Games, your in-game progress (best scores and the skin each
+        was set with, unlocked and owned skins, star balance, and settings) is saved to Google Play Games
         "Saved Games" (Snapshots), tied to your Google account, so it survives
         reinstalls and syncs across your devices. This data is stored by Google,
         not by us. Cloud save is disabled if you do not sign in to Google Play
@@ -289,7 +305,10 @@ optional, and the game is fully playable without it.
       (GPS) location, photos, contacts, microphone or camera input, or any
       similar personally identifiable information. We do not receive your
       Google account email or password, nor your Apple ID or Game Center
-      credentials. The only network identifier involved
+      credentials. Your Play Games or Game Center display name is handled
+      only as described above: Google or Apple hold it for their own
+      services, and in an online match it goes directly to your opponent; it
+      never reaches us. The only network identifier involved
       is your IP address, and only during an online multiplayer match as
       described above — it is used solely to establish the connection and is
       not stored by us. The game does not require an account and the
@@ -317,7 +336,7 @@ optional, and the game is fully playable without it.
       </li>
       <li>
         <strong>Google Play Games Services (Android)</strong> — optional sign-in,
-        global leaderboards, and cloud save (Saved Games / Snapshots).
+        global leaderboards (scores and the skin of a best score), and cloud save (Saved Games / Snapshots).
         Governed by the
         <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.
       </li>
@@ -379,7 +398,10 @@ optional, and the game is fully playable without it.
       multiplayer connection details are deleted
       automatically once a match connects, and from version 2.1.37 the
       anonymous online account is deleted when you leave the online session
-      (retried at a later launch for up to 30 days if needed). To reset the
+      (retried at a later launch for up to 30 days if needed). Your name and
+      skin in an online match are not stored by the game after that online
+      session and never reach us. The skin of a best score is held by Google
+      Play Games with that score and is removed with it. To reset the
       Advertising ID (Android) or change your tracking choice (iOS), use
       your device settings as described above. For
       data held by Google (AdMob, Play Services, Firebase), please refer to

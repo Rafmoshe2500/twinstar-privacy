@@ -1,16 +1,17 @@
 # Twinstar: Mirror Comets — Privacy Policy
 
-Last updated: 2026-10-07
+Last updated: 2026-11-04
 
 Twinstar: Mirror Comets is published by Twinstar: Mirror Comets Games, available on Android and iOS (package/bundle id `com.twinstar.app` on both). The core game is offline by default and we operate no game servers that store your personal data. Optional features — online 1v1 multiplayer and cloud save — rely on Google and a network-relay provider, described below.
 
 ## Data we collect
 
-- **Google Play Games Services (Android — leaderboards & cloud save)** — if you sign in (optional), Google processes your Play Games player ID, gamer profile/display name, submitted scores, and your saved game progress (Saved Games / Snapshots). Handled by Google, not by us.
-- **Apple Game Center (iOS — leaderboards)** — if you choose to sign in, Apple processes your Game Center player ID, display name, and submitted scores, to provide leaderboards. Handled by Apple, not by us. Game Center is used for leaderboards only — on iOS your game progress is not backed up to the cloud (see "Game progress and responsibility" below). Signing in is optional and the game is fully playable without it.
+- **Google Play Games Services (Android — leaderboards & cloud save)** — if you sign in (optional), Google processes your Play Games player ID, gamer profile/display name, submitted scores, and your saved game progress (Saved Games / Snapshots). From version 2.4.9 a new best score is submitted with the id of the skin you set it with, and other players see that skin next to your score on the leaderboard. Handled by Google, not by us.
+- **Apple Game Center (iOS — leaderboards)** — if you choose to sign in, Apple processes your Game Center player ID, display name, and submitted scores, to provide leaderboards. Handled by Apple, not by us. Game Center is used for leaderboards only — on iOS your game progress is not backed up to the cloud (see "Game progress and responsibility" below), and the skin of a best score is not sent to Game Center. Signing in is optional and the game is fully playable without it.
 - **Advertising ID / IDFA** — used by Google AdMob to show ads and (with your consent) personalize them. This is the Advertising ID on Android (reset or opt out in your device's settings → Google → Ads) and the IDFA on iOS (see "App Tracking Transparency" below).
 - **Crash reports** — anonymous crash data collected by Google Play Console (Android) or Apple App Store Connect (iOS).
 - **Online multiplayer (IP address)** — during an online 1v1 match, your device connects directly to your opponent's via WebRTC. Your public IP address and network candidate info are exchanged with the other player and processed by connection-helper servers (Google STUN and a third-party TURN relay provider, such as Open Relay or ExpressTURN). Firebase coordinates only the initial handshake: it holds the room's connection details, which are deleted once the match connects, and an anonymous account created for that online session. The account carries no name, email or other personal details. From version 2.1.37 the app deletes it when you leave the online session; if it cannot (for example, the app was closed or offline), it retries at a later launch and gives up after 30 days, or sooner if several such accounts are waiting, and an account it gives up on can stay in our Firebase project. Until then a small record of that account stays on your device only. No score or purchase data is involved, and we run no game servers of our own.
+- **Your name and skin in online matches** — from version 2.4.9, when an online 1v1 connects, your device sends your opponent's device your Google Play Games (Android) or Game Center (iOS) display name, if you are signed in, and the id of your selected skin. Your opponent sees them during that online session. They travel over the encrypted connection between the two devices, so a TURN relay, if used, cannot read them. They never reach us, they are not sent to Firebase, and we do not store them. If you are not signed in, your opponent sees "PLAYER"; your skin is still sent. There is no in-game setting for this: to keep your name from being shown, stay signed out of Google Play Games or Game Center, or do not play online.
 
 ## App Tracking Transparency (iOS)
 
@@ -24,7 +25,7 @@ The tracking is performed by Google AdMob, not by us: we operate no advertising 
 
 ## Data we do not collect
 
-Names, email addresses, phone numbers, precise (GPS) location, photos, contacts, microphone or camera input, or similar PII. We do not receive your Google account email or password, nor your Apple ID credentials. The only network identifier involved is your IP address, used solely to establish an online match and not stored by us.
+Names, email addresses, phone numbers, precise (GPS) location, photos, contacts, microphone or camera input, or similar PII. We do not receive your Google account email or password, nor your Apple ID credentials. Your Play Games or Game Center display name is handled only as described above: Google or Apple hold it for their own services, and in an online match it goes directly to your opponent; it never reaches us. The only network identifier involved is your IP address, used solely to establish an online match and not stored by us.
 
 ## Third parties
 
